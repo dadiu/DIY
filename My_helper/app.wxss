@@ -1,0 +1,27 @@
+/**app.wxss**/
+.container {
+  font-family: "Microsoft YaHei";
+  font-size: 26rpx;
+  color: #333;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.my-btn{
+  padding: 20rpx 32rpx;
+  border-radius: 10rpx;
+  box-shadow: 0 0 5rpx #999;
+}
+.my-btn-primary{
+  background: #333;
+  color:#fff;
+}
+.my-btn-default{
+  background: #fff;
+  color:#333;
+}

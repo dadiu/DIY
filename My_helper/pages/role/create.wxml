@@ -1,2 +1,47 @@
 <!--pages/role/create.wxml-->
-<text>pages/role/create.wxml</text>
+
+<view class="container">
+    <!-- role -->
+    <view class="role">
+        <view class="role-info">
+            <text class="role-area">一笑倾城</text>
+            /
+            <text class="role-name">大大丢</text>
+            /
+            <text class="role-level">87级</text>
+        </view>
+        <view class="role-date">
+            <view>04/17 - 04/23</view>
+        </view>
+    </view>
+    <!-- /role -->
+    <table>
+        <tr class="thead">
+            <td class="td-t">道具名</td>
+            <td class="td-n">数量</td>
+            <td class="td-p">参考价</td>
+        </tr>
+        <block wx:for="{{proList}}"  wx:for-index="idx" wx:key="idx">   
+            <tr>
+                <td class="td-t">{{item.t}}</td>
+                <td class="td-n number">
+                    <view class="btn-min btn-default" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="-1">-</view>
+                    <text class="number-item">{{item.n}}</text>
+                    <view class="btn-min btn-default" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="1">+</view>
+                </td>
+                <td class="td-p">{{item.p}}</td>
+            </tr>
+        </block>
+    </table>
+
+
+    <!-- total -->
+    <table class="total">
+        <tr>
+            <td class="td-t">总金额</td>
+            <td class="td-n"></td>
+            <td class="td-p">0</td>
+        </tr>
+    </table>
+    <!-- /total -->
+</view>

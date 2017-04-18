@@ -1,1 +1,20 @@
 /* pages/role/create.wxss */
+
+.number{
+    display: flex;
+}
+
+.btn-min{
+    flex: .5;
+}
+.number-item{
+    flex: 1;
+}
+
+.total{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #333;
+    color: #fff;
+}

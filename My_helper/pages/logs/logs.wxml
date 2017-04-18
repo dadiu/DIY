@@ -1,11 +1,11 @@
 <!--logs.wxml-->
 
 
-  <view class="my-btn my-btn-primary" style="margin-top:10px;">
-    <text class="user-motto ">my-btn-primary</text>
+  <view class="btn btn-primary" style="margin-top:10px;">
+    <text class="user-motto ">btn-primary</text>
   </view>
-  <view class="my-btn my-btn-default" style="margin-top:10px;">
-    <text class="user-motto ">my-btn-default</text>
+  <view class="btn btn-default" style="margin-top:10px;">
+    <text class="user-motto ">btn-default</text>
   </view>
 
   

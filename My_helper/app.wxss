@@ -1,4 +1,10 @@
+
 /**app.wxss**/
+
+page {
+  background: #efefef;
+}
+
 .container {
   font-family: "Microsoft YaHei";
   font-size: 26rpx;
@@ -6,22 +12,75 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
+  /*align-items: center;
+  justify-content: space-between;*/
   box-sizing: border-box;
 }
 
-.my-btn{
+
+/*** btn ***/
+.btn{
   padding: 20rpx 32rpx;
   border-radius: 10rpx;
   box-shadow: 0 0 5rpx #999;
 }
-.my-btn-primary{
+.btn-primary{
   background: #333;
   color:#fff;
 }
-.my-btn-default{
+.btn-default{
   background: #fff;
   color:#333;
+}
+
+/*** table ***/
+table{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  background: #fff;
+}
+tr{
+  display: flex;
+  margin: 0 10px;
+  border-bottom: 1px solid #ddd;
+}
+tr:last-child{
+  margin: 0;
+  padding: 0 10px;
+}
+td{
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.thead {
+  font-weight: bolder;
+}
+
+.td-t{
+  flex: .4;
+}
+.td-p{
+  flex: .6;
+}
+.td-n{
+  flex: 1;
+}
+
+
+/*** role ***/
+.role {
+  padding: 20rpx;
+  display: flex;
+  background: #fff;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.role-info{
+  flex: 1.5;
+}
+.role-date{
+  flex: .5;
+  text-align: right;
 }

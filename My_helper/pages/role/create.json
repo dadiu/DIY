@@ -1,1 +1,7 @@
-{}
+{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#333",
+    "navigationBarTitleText": "编辑道具环",
+    "navigationBarTextStyle":"white"
+}
+

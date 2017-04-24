@@ -104,7 +104,7 @@ Page({
     let enterNum = '';
 
     if(len <= 3){
-      return num;
+      return total;
     }
     else {
       for(; i < len; i++){

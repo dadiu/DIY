@@ -18,3 +18,8 @@
     background: #333;
     color: #fff;
 }
+.userinfo-avatar{
+    width:60rpx;
+    height:60rpx;
+    border-radius:50%;
+}

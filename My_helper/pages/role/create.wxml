@@ -4,7 +4,7 @@
 
 <view class="container">
     <!-- role -->
-    <!--<template is="roleInfo" data="{{role.info}}"></template>-->
+    <template is="roleInfo" data="{{roleInfo}}"></template>
     <!-- /role -->
     <table>
         <tr class="thead">
@@ -32,8 +32,8 @@
             <td class="td-t">总金额</td>
             <td class="td-p">{{total}}</td>
             <td class="td-n">
-                <text class="btn btn-default mr20">下次继续</text>
-                <text class="btn btn-default">跑完了</text>
+                <!--<text class="btn btn-default mr20" bindtap="stop">下次继续</text>-->
+                <text class="btn btn-default" bindtap="end">跑完了</text>
             </td>
         </tr>
     </table>

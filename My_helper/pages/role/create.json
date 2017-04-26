@@ -1,7 +1,4 @@
 {
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#7e57c2",
-    "navigationBarTitleText": "道具统计",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "道具统计"
 }
 

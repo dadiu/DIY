@@ -1,7 +1,4 @@
 {
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#7e57c2",
-    "navigationBarTitleText": "角色管理",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "角色管理"
 }
 

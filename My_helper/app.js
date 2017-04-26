@@ -26,5 +26,29 @@ App({
   },
   globalData:{
     userInfo:null
+  },
+
+  
+
+  /**
+   * 金额格式化
+   */
+  priceChange : function(total, max){
+    console.log(total);
+    let num = total.toString().split("").reverse();
+    let len = num.length;
+    let i = 0;
+    let enterNum = '';
+
+    if(len <= 3){
+      return total;
+    }
+    else {
+      for(; i < len; i++){
+        enterNum += num[i] + ((i + 1) % 3 == 0 && (i + 1) != len ? "," : ""); ;
+      }
+
+      return enterNum.split("").reverse().join("");
+    }
   }
 })

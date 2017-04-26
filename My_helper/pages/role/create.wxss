@@ -16,7 +16,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background: #333;
-    color: #fff;
+    background: #bbb;
+    color: #333;
 }
 

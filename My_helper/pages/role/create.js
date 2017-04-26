@@ -1,5 +1,5 @@
 // pages/role/create.js
-// var app = getApp();
+var app = getApp();
 var proList = require('../../data/prolist-data.js');
 var role = require('../../data/role-data.js');
 
@@ -8,11 +8,10 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    console.log(role.info);
 
     this.setData({
       proList : proList,
-      role : role,
+      roleInfo : role.info,
       total : 0
     })
   },
@@ -80,30 +79,45 @@ Page({
     };
 
     this.setData({
-      total : _t.priceChange(total, 3)
+      total : app.priceChange(total, 3)
     })
 
   },
 
   /**
-   * 金额格式化
+   * 下次继续
    */
-  priceChange : function(total, max){
-    console.log(total);
-    let num = total.toString().split("").reverse();
-    let len = num.length;
-    let i = 0;
-    let enterNum = '';
-
-    if(len <= 3){
-      return total;
-    }
-    else {
-      for(; i < len; i++){
-        enterNum += num[i] + ((i + 1) % 3 == 0 && (i + 1) != len ? "," : ""); ;
+  stop : function(){
+    wx.redirectTo({
+      url: 'role',
+      success: function(res){
+        // success
+      },
+      fail: function(res) {
+        // fail
+      },
+      complete: function(res) {
+        // complete
       }
+    })
+  },
 
-      return enterNum.split("").reverse().join("");
-    }
+  /**
+   * 跑完了
+   * 等出了GM奖励再跳转去GM
+   */
+  end : function(){
+    wx.redirectTo({
+      url: 'role',
+      success: function(res){
+        // success
+      },
+      fail: function(res) {
+        // fail
+      },
+      complete: function(res) {
+        // complete
+      }
+    })
   }
 })

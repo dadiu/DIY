@@ -1,7 +1,4 @@
 {
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#7e57c2",
-    "navigationBarTitleText": "历史记录",
-    "navigationBarTextStyle":"white"
+    "navigationBarTitleText": "历史记录"
 }
 

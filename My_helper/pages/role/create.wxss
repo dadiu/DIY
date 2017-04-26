@@ -1,4 +1,5 @@
 /* pages/role/create.wxss */
+@import '../tpl/role-info.wxss';
 
 .number{
     display: flex;
@@ -18,8 +19,4 @@
     background: #333;
     color: #fff;
 }
-.userinfo-avatar{
-    width:60rpx;
-    height:60rpx;
-    border-radius:50%;
-}
+

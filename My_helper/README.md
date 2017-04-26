@@ -3,7 +3,22 @@
 
 ### 参考
 - [微信小程序入门与实战](http://coding.imooc.com/learn/list/75.html)
-- [Muse-UI](http://www.muse-ui.org/#/raisedButton)
+- [Muse-UI](http://www.muse-ui.org)
+
+
+### 项目结构
+
+    |- 首次进入
+        |- 创建角色
+    |- 二次进入
+        |- 创建角色（同上）
+        |- 历史 <--------------
+            |- 列表           |
+            |- 详情           |
+        |- 新增               |
+            |- 创建           |
+            |- 编辑           |
+                |- GM奖励 -----
 
 
 

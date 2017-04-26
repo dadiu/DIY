@@ -1,0 +1,8 @@
+<!--pages/role/history.wxml-->
+<improt src="../tpl/role-info.wxml"/>
+
+<view class="container">
+    <!-- role info -->
+    <template is="roleInfo" data="{{roleInfo}}"></template>
+    <!-- /role info -->
+</view>

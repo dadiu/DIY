@@ -1,0 +1,14 @@
+<template name="roleInfo">
+  <view class="role">
+    <view class="role-info">
+      <text class="role-area">{{roleInfo.area}}</text>
+      /
+      <text class="role-name">{{roleInfo.name}}</text>
+      /
+      <text class="role-level">{{roleInfo.level}}级</text>
+    </view>
+    <view class="role-date">
+      <view>{{roleInfo.time}}</view>
+    </view>
+  </view>
+</template>

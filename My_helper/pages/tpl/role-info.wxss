@@ -1,0 +1,16 @@
+
+/*** role ***/
+.role {
+  padding: 20rpx;
+  display: flex;
+  background: #fff;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.role-info{
+  flex: 1.5;
+}
+.role-date{
+  flex: .5;
+  text-align: right;
+}

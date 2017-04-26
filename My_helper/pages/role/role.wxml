@@ -1,0 +1,55 @@
+<!--pages/role/role.wxml-->
+<view class="container">
+
+    <!-- 创建角色 -->
+    <view class="creatRole {{isRole ? '' : 'hide'}}">
+        <view class="t-head">
+            <image src="/img/ic-user.png" class="t-head-img ic-min"></image>
+            <text class="t-head-txt">创建角色</text>
+        </view>
+        <form class="form">
+            <view class="form-error {{isError ? '' : 'hide' }}">
+                错误提示位置
+            </view>
+            <view class="form-item">
+                <label for="areaName" class="form-label">大区名</label>
+                <input type="text" placeholder="请输入大区名，表超过4个字" maxlength="4" id="areaName" class="form-input"/>
+            </view>
+            <view class="form-item">
+                <label for="roleName" class="form-label">角色名</label>
+                <input type="text" placeholder="请输入角色名，表超过6个" maxlength="6" id="roleName" class="form-input"/>
+            </view>
+            <view class="btn-bar-center">
+                <text class="btn btn-max btn-primary" bindtap="createRole">创建</text>
+            </view>
+        </form>
+    </view>
+    <!-- /创建角色 -->
+
+
+    <!-- 角色列表 -->
+    <view class="roleList {{isRole ? 'hide' : ''}}">
+        <table>
+            <tr class="thead">
+                <td class="td-t">大区</td>
+                <td class="td-p">角色</td>
+                <td class="td-n">操作</td>
+            </tr>
+            <block wx:for="{{roleList}}"  wx:for-index="idx" wx:key="idx">   
+                <tr>
+                    <td class="td-t">{{item.t}}</td>
+                    <td class="td-p">{{item.p}}</td>
+                    <td class="td-n btn-bar-table">
+                        <text class="btn btn-min btn-default" bindtap="checkHistory">历史</text>
+                        <text class="btn btn-min btn-default" bindtap="addNew">新增</text>
+                    </td>
+                </tr>
+            </block>
+        </table>
+        <view class="btn-bar-center">
+            <text class="btn btn-max btn-primary" bindtap="addRole">增加角色 </text>
+        </view>
+    </view>
+    <!-- /角色列表 -->
+   
+</view>

@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/role/create",
+    "pages/role/history",
+    "pages/role/role",
     "pages/index/index",
     "pages/logs/logs"
   ],

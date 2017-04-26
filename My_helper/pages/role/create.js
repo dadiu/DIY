@@ -1,26 +1,18 @@
 // pages/role/create.js
-var app = getApp();
-var proList = [
-      { t : "魔决", n : 0, p : 6000 },
-      { t : "彩果", n : 0, p : 8600 },
-      { t : "玫瑰", n : 0, p : 5400 },
-      { t : "金兰", n : 0, p : 5400 },
-      { t : "精华", n : 0, p : 10000 },
-      { t : "夜光", n : 0, p : 800 },
-      { t : "避水", n : 0, p : 400 },
-      { t : "龙鳞", n : 0, p : 600 },
-      { t : "60环", n : 0, p : 1000 },
-      { t : "50环", n : 0, p : 1000 }
-    ];
+// var app = getApp();
+var proList = require('../../data/prolist-data.js');
+var role = require('../../data/role-data.js');
 
 Page({
-  data:{},
+  data:{
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    // console.log(app);
+    console.log(role.info);
 
     this.setData({
       proList : proList,
+      role : role,
       total : 0
     })
   },

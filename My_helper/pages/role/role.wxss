@@ -1,0 +1,12 @@
+/* pages/role/role.wxss */
+
+.creatRole{
+    display: flex;
+    flex-direction: column;
+}
+
+.userinfo-avatar{
+    width:60rpx;
+    height:60rpx;
+    border-radius:50%;
+}

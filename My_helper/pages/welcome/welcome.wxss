@@ -1,0 +1,23 @@
+/* pages/welcome/welcome.wxss */
+page{
+    background: #7e57c2;
+}
+
+.container{
+    text-align: center;
+}
+.userinfo{
+    margin-top: 260rpx;
+}
+.userinfo-avatar{
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 50%;
+}
+.userinfo-nickname{
+    margin-top: 50rpx;
+    color: #fff;
+}
+.mt100{
+    margin-top: 100rpx;
+}

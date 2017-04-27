@@ -4,7 +4,6 @@
 page {
   background: #efefef;
 }
-
 .container {
   font-family: "Microsoft YaHei";
   font-size: 26rpx;
@@ -21,6 +20,7 @@ page {
 .mr20 {
   margin-right: 20rpx;
 }
+
 .hide{
   display: none !important;
 }
@@ -42,6 +42,10 @@ page {
   width: 40rpx;
   height: 40rpx;
 }
+.ic-mini{
+  width:30rpx;
+  height: 30rpx;
+}
 
 /*** btn ***/
 .btn-bar-center{
@@ -49,25 +53,31 @@ page {
   text-align: center;
 }
 
+.btn-bar-both{
+  display: flex;
+  align-items: center;
+}
+.btn-bar-both-right{
+  padding-right: 10rpx;
+  justify-content: flex-end;
+}
+
 .btn-bar-table > .btn{
   margin: 0 10rpx;
 }
 
 .btn{
-  padding: 20rpx 32rpx;
+  font-size: 32rpx;
   border-radius: 10rpx;
-  box-shadow: 0 0 5rpx #999;
+  box-shadow: 0 0 4rpx #ccc;
 }
 .btn-max{
   display: inline-block;
   width: 200rpx;
 }
 .btn-min{
-  padding:10rpx 20rpx;
-}
-.btn-primary{
-  background: #333;
-  color:#fff;
+  height: 32px;
+  line-height: 32px;
 }
 .btn-primary{
   background: #7e57c2;
@@ -77,9 +87,14 @@ page {
   background: #fff;
   color:#333;
 }
+.btn-gray{
+  background: #e8e8e8;
+  color:#333;
+}
 
 /*** table ***/
 table{
+  font-size: 24rpx;
   display: flex;
   flex-direction: column;
   width:100%;
@@ -115,6 +130,10 @@ td{
 
 
 /*** form ***/
+input{
+  font-size: 26rpx;
+  font-family: "Microsoft YaHei";
+}
 .form{
   margin-bottom: 20px;
   display: flex;
@@ -140,15 +159,17 @@ td{
   top: 0;
   content: "";
   height: 1px;
-  width: 96%;
+  width: 94%;
   background: #eee;
 }
 form-item:last-child{
   margin-bottom: 20rpx;
 }
 .form-label{
+  padding-left: 10rpx;
   height: 48px;
   line-height: 48px;
+  width: 80rpx;
   flex-grow: 1;
 }
 .form-input{
@@ -156,3 +177,17 @@ form-item:last-child{
   height: 48px;
   line-height: 48px;
 }
+.form-tips{
+  color: #aaa;
+  padding: 0 20rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+.form-placeholder{
+  font-size: 26rpx;
+  font-family: "Microsoft YaHei";
+  color: #aaa;
+}
+
+
+/*** animate ***/

@@ -1,1 +1,2 @@
 /* pages/role/detail.wxss */
+@import '../tpl/role-info.wxss';

@@ -2,33 +2,38 @@
 <view class="container">
 
     <!-- 创建角色 -->
-    <view class="creatRole {{isRole ? '' : 'hide'}}">
+    <view class="creatRole">
         <view class="t-head">
             <image src="/img/ic-user.png" class="t-head-img ic-min"></image>
-            <text class="t-head-txt">创建角色</text>
+            <text class="t-head-txt">请先创建角色</text>
         </view>
-        <form class="form">
-            <view class="form-error {{isError ? '' : 'hide' }}">
-                错误提示位置
+        <form class="form" bindsubmit="createRole">
+            <view class="form-error" wx:if="{{isError}}">
+                {{error}}
             </view>
             <view class="form-item">
                 <label for="areaName" class="form-label">大区名</label>
-                <input type="text" placeholder="请输入大区名，表超过4个字" maxlength="4" id="areaName" class="form-input"/>
+                <input type="text" placeholder="1~4位中文" maxlength="4" id="areaName" class="form-input" placeholder-class="form-placeholder" name="area" bindfocus="hideError"/>
             </view>
             <view class="form-item">
                 <label for="roleName" class="form-label">角色名</label>
-                <input type="text" placeholder="请输入角色名，表超过6个" maxlength="6" id="roleName" class="form-input"/>
+                <input type="text" placeholder="1~6位中文" maxlength="6" id="roleName" class="form-input" placeholder-class="form-placeholder" name="role" bindfocus="hideError"/>
+            </view>
+            <view class="form-item">
+                <label for="level" class="form-label">等级</label>
+                <input type="number" placeholder="1~3位纯数字" maxlength="3" id="level" class="form-input" placeholder-class="form-placeholder" name="level" bindfocus="hideError"/>
             </view>
             <view class="btn-bar-center">
-                <text class="btn btn-max btn-primary" bindtap="createRole">创建</text>
+                <button form-type="submit" class="btn btn-primary">创建角色</button>
             </view>
+            <view class="form-tips">* 所有数据暂存在本地，如清理了微信缓存，则数据将一同清空</view>
         </form>
     </view>
     <!-- /创建角色 -->
 
 
-    <!-- 角色列表 -->
-    <view class="roleList {{isRole ? 'hide' : ''}}">
+    <!-- 角色列表 二期-->
+    <!--<view class="roleList">
         <table>
             <tr class="thead">
                 <td class="td-t">大区</td>
@@ -49,7 +54,7 @@
         <view class="btn-bar-center">
             <text class="btn btn-max btn-primary" bindtap="addRole">增加角色 </text>
         </view>
-    </view>
+    </view>-->
     <!-- /角色列表 -->
    
 </view>

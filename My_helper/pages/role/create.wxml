@@ -17,9 +17,9 @@
                 <td class="td-t">{{item.t}}</td>
                 <td class="td-p">{{item.p}}</td>
                 <td class="td-n number">
-                    <view class="btn-min btn-default" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="-1">-</view>
+                    <button size="mini" class="btn-min btn-gray" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="-1">-</button>
                     <text class="number-item">{{item.n}}</text>
-                    <view class="btn-min btn-default" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="1">+</view>
+                    <button size="mini" class="btn-min btn-gray" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="1">+</button>
                 </td>
             </tr>
         </block>
@@ -31,9 +31,9 @@
         <tr>
             <td class="td-t">总金额</td>
             <td class="td-p">{{total}}</td>
-            <td class="td-n">
-                <!--<text class="btn btn-default mr20" bindtap="stop">下次继续</text>-->
-                <text class="btn btn-default" bindtap="end">跑完了</text>
+            <td class="td-n btn-bar-both">
+                <button size="mini" class="btn-default" bindtap="wait">休息会儿</button>
+                <button size="mini" class="btn-default" bindtap="end">跑完了</button>
             </td>
         </tr>
     </table>

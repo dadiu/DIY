@@ -1,2 +1,12 @@
 <!--pages/role/detail.wxml-->
-<text>pages/role/detail.wxml</text>
+<import src="../tpl/role-info.wxml"/>
+
+<view class="container">
+    <!-- role -->
+    <template is="roleInfo" data="{{roleInfo}}"></template>
+    <!-- /role -->
+
+    
+    
+</view>
+

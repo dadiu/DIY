@@ -1,60 +1,83 @@
 // pages/role/history.js
 var app = getApp();
-var role = require('../../data/role-data.js');
+var roleInfo = wx.getStorageSync('role-list')[0];
+var storageHistoryList = wx.getStorageSync('history-list');
 
 Page({
   data:{
+    roleInfo : {},
+    historyList : [],
+    isWait : false
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    let myRoleList = [];
 
-    role.list.forEach(function(val){
+    this.getHistoryList();
+    this.setData({
+      roleInfo : roleInfo,
+    })
+  },
+
+  /**
+   * 历史列表
+   */
+  getHistoryList : function(){
+    let myRoleList = this.isWaitFn();
+
+    storageHistoryList.forEach(function(val){
       myRoleList.push({
-        t : val.time,
+        t : val.time + ' ' + val.week,
         l : val.level,
-        p : app.priceChange(val.price),
+        p : app.priceChange(val.total),
         id : val.id
       })
     });
 
-    role.info.time = "";
+    
     this.setData({
-      roleInfo : role.info,
-      roleList : myRoleList
+      historyList : myRoleList
     })
-  },
-  onReady:function(){
-    // 页面渲染完成
-  },
-  onShow:function(){
-    // 页面显示
-  },
-  onHide:function(){
-    // 页面隐藏
-  },
-  onUnload:function(){
-    // 页面关闭
+
   },
 
   /**
-   * 查看详情
+   * 进行中的道具环
+   * @param
    */
-  openDetail: function(event){
-    let data = event.currentTarget.dataset;
-    console.log(data);
-    wx.navigateTo({
-      url: 'detail',
-      success: function(res){
-        // success
-      },
-      fail: function(res) {
-        // fail
-      },
-      complete: function(res) {
-        // complete
-      }
-    })
+  isWaitFn : function(){
+    let arr = [];
+    let waitList = wx.getStorageSync('pro-info');
+    if(waitList){
+      arr = [
+        {
+          t : waitList.time + ' ' + waitList.week,
+          l : roleInfo.level,
+          p : app.priceChange(waitList.total)
+        }
+      ]
+    }
 
-  }
+    return arr;
+  },
+
+  /**
+   * 打开单道具详情页
+   */
+   openDetail : function(event){
+     let idx = event.currentTarget.dataset.idx;
+     let current = storageHistoryList[idx];
+
+     wx.navigateTo({
+       url: 'detail?id=' + current.id + '&level=' + current.level + '&time=' + current.time + current.week
+      })
+   },
+
+   /**
+    * 打开进行中道具页
+    */
+   openPro : function(){
+     wx.navigateTo({
+       url: 'create'
+     })
+   }
 })

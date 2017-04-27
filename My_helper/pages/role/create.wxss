@@ -3,13 +3,14 @@
 
 .number{
     display: flex;
+    align-items: center;
 }
 
 .btn-min{
-    flex: .5;
+    flex:1;
 }
 .number-item{
-    flex: 1;
+    flex: 8;
 }
 
 .total{

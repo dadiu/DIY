@@ -6,7 +6,31 @@
     <template is="roleInfo" data="{{roleInfo}}"></template>
     <!-- /role -->
 
-    
+    <table>
+        <tr class="thead">
+            <td class="td-t">道具名</td>
+            <td class="td-t">参考价</td>
+            <td class="td-t">数量</td>
+        </tr>
+        <block wx:for="{{proList}}"  wx:for-index="idx" wx:key="idx">   
+            <tr>
+                <td class="td-t">{{item.t}}</td>
+                <td class="td-t">{{item.p}}</td>
+                <td class="td-t">{{item.n}}</td>
+            </tr>
+        </block>
+    </table>
+
+
+    <!-- total -->
+    <table class="total">
+        <tr>
+            <td class="td-t">总金额</td>
+            <td class="td-t">{{total}}</td>
+            <td class="td-t"></td>
+        </tr>
+    </table>
+    <!-- /total -->    
     
 </view>
 

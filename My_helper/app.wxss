@@ -16,9 +16,12 @@ page {
   box-sizing: border-box;
 }
 
-/*** margin ***/
+/*** common ***/
 .mr20 {
   margin-right: 20rpx;
+}
+.mt20{
+  margin-top: 20rpx;
 }
 
 .hide{
@@ -34,6 +37,9 @@ page {
 
 .t-head-txt{
   margin-left: 5px;
+}
+.bg_gray{
+  background: #ccc;
 }
 
 
@@ -129,13 +135,21 @@ td{
 }
 
 
+.total{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #bbb;
+    color: #333;
+}
+
 /*** form ***/
 input{
   font-size: 26rpx;
   font-family: "Microsoft YaHei";
 }
 .form{
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -152,6 +166,7 @@ input{
   background: #fff;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .form-item:not(:first-child)::after{
   position: absolute;
@@ -188,6 +203,7 @@ form-item:last-child{
   font-family: "Microsoft YaHei";
   color: #aaa;
 }
+
 
 
 /*** animate ***/

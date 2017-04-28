@@ -61,7 +61,7 @@ App({
    * 金额格式化
    */
   priceChange : function(total, max){
-    console.log(total);
+    // console.log(total);
     let num = total.toString().split("").reverse();
     let len = num.length;
     let i = 0;
@@ -77,5 +77,34 @@ App({
 
       return enterNum.split("").reverse().join("");
     }
+  },
+
+  
+  /**
+   * 获取当前时间
+   */
+  getTime : function(){
+    let today = new Date();
+    let weekdayArr = ['日', '一', '二', '三', '四', '五', '六'];
+    let Year = today.getFullYear(),
+        Month = today.getMonth()+1,
+        day = today.getDate(),
+        weekday = weekdayArr[today.getDay()];
+    if(Month < 10){
+      Month = '0' + Month;
+    }
+    if(day < 10){
+      day = '0' + day;
+    }
+
+    return {
+      time : Year + '-' + Month + '-' + day,
+      week : '周' + weekday
+    };
+
+    // return {
+    //   time : '2017-04-19',
+    //   week : '周三'
+    // }
   }
 })

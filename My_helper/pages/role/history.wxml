@@ -15,13 +15,13 @@
             <td class="td-t"></td>
         </tr>
         <block wx:for="{{historyList}}" wx:key="item">   
-            <tr>
+            <tr class="{{removeClassName}}" bindtap="openNext"  bindtouchmove="removeItem" data-idx="{{index}}" data-id="{{item.id}}">
                 <td class="td-n">{{item.t}}</td>
                 <td class="td-t">{{item.l}}</td>
                 <td class="td-n">{{item.p}}</td>
                 <td class="td-t btn-bar-both btn-bar-both-right">
-                    <image src="/img/next.png" class="ic-mini" bindtap="openDetail" data-idx="{{index}}" wx:if="{{item.id}}"></image>
-                    <image src="/img/more.png" class="ic-mini" bindtap="openPro" wx:else></image>
+                    <image src="/img/ic-next.png" class="ic-mini" wx:if="{{item.id}}"></image>
+                    <image src="/img/ic-more.png" class="ic-mini" wx:else></image>
                 </td>
             </tr>
         </block>

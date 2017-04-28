@@ -1,41 +1,55 @@
+
 <!--pages/role/create.wxml-->
-
-<import src="../tpl/role-info.wxml"/>
-
+<import src="../tpl/role-info.wxml" />
 <view class="container">
-    <!-- role -->
-    <template is="roleInfo" data="{{roleInfo}}"></template>
-    <!-- /role -->
-    <table>
-        <tr class="thead">
-            <td class="td-t">道具名</td>
-            <td class="td-p">参考价</td>
-            <td class="td-n">数量</td>
-        </tr>
-        <block wx:for="{{proList}}"  wx:for-index="idx" wx:key="idx">   
-            <tr>
-                <td class="td-t">{{item.t}}</td>
-                <td class="td-p">{{item.p}}</td>
-                <td class="td-n number">
-                    <button size="mini" class="btn-min btn-gray" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="-1">-</button>
-                    <text class="number-item">{{item.n}}</text>
-                    <button size="mini" class="btn-min btn-gray" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="1">+</button>
-                </td>
-            </tr>
-        </block>
-    </table>
 
+  <!-- role -->
+  <view catchlongtap="changeLevel">
+    <form class="form" bindsubmit="changeLevelSubmit" bindreset="changeLevelReset" wx:if="{{isChangeLevel}}">
+      <view class="form-error" wx:if="{{isError}}">
+        {{error}}
+      </view>
+      <view class="form-item">
+        <label for="level" class="form-label">当前等级</label>
+        <input type="number" placeholder="1~3位纯数字" maxlength="3" id="level" class="form-input" placeholder-class="form-placeholder" name="level" bindfocus="hideError" />
+      </view>
+      <view class="form-item ">
+        <label for="level" class="form-label"></label>
+        <button size="mini" form-type="submit" class="btn-primary mr20">更新</button>
+        <button size="mini" form-type="reset" class="btn-black">取消</button>
+      </view>
+    </form>
+    <template is="roleInfo" data="{{roleInfo}}" wx:else></template>
+  </view><!-- /role -->
+  <table>
+    <tr class="thead">
+      <td class="td-t">道具名</td>
+      <td class="td-p">参考价</td>
+      <td class="td-n">数量</td>
+    </tr>
+    <block wx:for="{{proList}}" wx:for-index="idx" wx:key="idx">
+      <tr>
+        <td class="td-t">{{item.t}}</td>
+        <td class="td-p">{{item.p}}</td>
+        <td class="td-n number">
+          <button size="mini" class="btn-min btn-gray" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="-1">-</button>
+          <text class="number-item">{{item.n}}</text>
+          <button size="mini" class="btn-min btn-gray" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="1">+</button>
+        </td>
+      </tr>
+    </block>
+  </table>
+  <view class="form-tips mt20">* 道具价格默认取平均值，以“一笑倾城”服务器为参考</view>
 
-    <!-- total -->
-    <table class="total">
-        <tr>
-            <td class="td-t">总金额</td>
-            <td class="td-p">{{total}}</td>
-            <td class="td-n btn-bar-both">
-                <button size="mini" class="btn-default" bindtap="wait">休息会儿</button>
-                <button size="mini" class="btn-default" bindtap="end">跑完了</button>
-            </td>
-        </tr>
-    </table>
-    <!-- /total -->
+  <!-- total -->
+  <table class="total">
+    <tr>
+      <td class="td-t">总金额</td>
+      <td class="td-p">{{total}}</td>
+      <td class="td-n btn-bar-both">
+        <button size="mini" class="btn-default" bindtap="wait">休息会儿</button>
+        <button size="mini" class="btn-default" bindtap="end">跑完了</button>
+      </td>
+    </tr>
+  </table><!-- /total -->
 </view>

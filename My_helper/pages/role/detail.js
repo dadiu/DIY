@@ -1,7 +1,7 @@
 // pages/role/detail.js
 var app = getApp();
-var roleInfo = wx.getStorageSync('role-info')[0];
-var historyInfo = wx.getStorageSync('history-info');
+var roleInfo = null;
+var historyInfo = null;
 var currentInfo = {}; 
 
 Page({
@@ -10,16 +10,24 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    console.log(options);
+    // console.log(options);
+
+    roleInfo = wx.getStorageSync('role-list')[0];
+    historyInfo = wx.getStorageSync('history-info');
 
     currentInfo = historyInfo[options.id];
-    roleInfo.level = options.level;
-    roleInfo.time = options.time;
 
+    roleInfo.level = options.level;
+    roleInfo.time = currentInfo.time + ' ' + currentInfo.week;
+    
     this.setData({
-      roleInfo : roleInfo
+      roleInfo : roleInfo,
+      proList : currentInfo.list,
+      total : app.priceChange(currentInfo.total)
     })
+
   },
+
   onReady:function(){
     // 页面渲染完成
   },

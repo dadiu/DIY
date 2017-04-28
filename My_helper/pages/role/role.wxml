@@ -13,11 +13,11 @@
             </view>
             <view class="form-item">
                 <label for="areaName" class="form-label">大区名</label>
-                <input type="text" placeholder="1~4位中文" maxlength="4" id="areaName" class="form-input" placeholder-class="form-placeholder" name="area" bindfocus="hideError"/>
+                <input type="text" placeholder="1~4位中文" maxlength="50" id="areaName" class="form-input" placeholder-class="form-placeholder" name="area" bindfocus="hideError"/>
             </view>
             <view class="form-item">
                 <label for="roleName" class="form-label">角色名</label>
-                <input type="text" placeholder="1~6位中文" maxlength="6" id="roleName" class="form-input" placeholder-class="form-placeholder" name="role" bindfocus="hideError"/>
+                <input type="text" placeholder="1~6位中文" maxlength="50" id="roleName" class="form-input" placeholder-class="form-placeholder" name="role" bindfocus="hideError"/>
             </view>
             <view class="form-item">
                 <label for="level" class="form-label">等级</label>

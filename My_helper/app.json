@@ -1,9 +1,9 @@
 {
   "pages":[
     "pages/welcome/welcome",
+    "pages/role/create",
     "pages/role/history",
     "pages/role/detail",
-    "pages/role/create",
     "pages/role/role",
     "pages/logs/logs",
     "pages/index/index"

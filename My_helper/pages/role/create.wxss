@@ -12,12 +12,7 @@
 .number-item{
     flex: 8;
 }
-
-.total{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background: #bbb;
-    color: #333;
+#level{
+    padding-left: 20rpx;
 }
 

@@ -24,12 +24,15 @@
   <table>
     <tr class="thead">
       <td class="td-t">道具名</td>
-      <td class="td-p">参考价</td>
+      <td class="td-p">参考价<text class="fc_gray">(金币)</text></td>
       <td class="td-n">数量</td>
     </tr>
     <block wx:for="{{proList}}" wx:for-index="idx" wx:key="idx">
       <tr>
-        <td class="td-t">{{item.t}}</td>
+        <td class="td-t td-pic">
+          <image src="../../img/xyq/{{item.ic}}.png" class="ic_eq"></image>
+          <text>{{item.t}}</text>
+        </td>
         <td class="td-p">{{item.p}}</td>
         <td class="td-n number">
           <button size="mini" class="btn-min btn-gray" bindtap="countFn" data-info="{{item}}" data-idx="{{idx}}" data-boo="-1">-</button>
@@ -39,17 +42,22 @@
       </tr>
     </block>
   </table>
-  <view class="form-tips mt20">* 道具价格默认取平均值，以“一笑倾城”服务器为参考</view>
+  <view class="form-tips mt20 mb50">* 长按道具价格，可进行编辑</view>
 
   <!-- total -->
   <table class="total">
     <tr>
-      <td class="td-t">总金额</td>
+      <td class="td-t">总额</td>
       <td class="td-p">{{total}}</td>
-      <td class="td-n btn-bar-both">
-        <button size="mini" class="btn-default" bindtap="wait">休息会儿</button>
-        <button size="mini" class="btn-default" bindtap="end">跑完了</button>
+      <td class="td-n">
+        {{total}}
       </td>
     </tr>
-  </table><!-- /total -->
+  </table>
+  <!--<view class="classname">
+  
+        <button size="mini" class="btn-default" bindtap="end">跑完了</button>
+        <button size="mini" class="btn-default" bindtap="wait">休息会儿</button>
+  </view>-->
+  <!-- /total -->
 </view>

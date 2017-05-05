@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/welcome/welcome",
     "pages/role/create",
+    "pages/welcome/welcome",
     "pages/role/history",
     "pages/role/detail",
     "pages/role/role",
@@ -10,7 +10,7 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#7e57c2",
+    "navigationBarBackgroundColor": "#333",
     "navigationBarTitleText": "大丢的小助手",
     "navigationBarTextStyle":"white"
   }

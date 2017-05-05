@@ -23,6 +23,9 @@ page {
 .mt20{
   margin-top: 20rpx;
 }
+.mb50{
+  margin-bottom: 50px;
+}
 
 .hide{
   display: none !important;
@@ -41,7 +44,12 @@ page {
 .bg_gray{
   background: #ccc;
 }
-
+.fc_gray{
+  color: #999;
+}
+.txt_l{
+  text-align: left !important;
+}
 
 /*** icon ***/
 .ic-min{
@@ -51,6 +59,10 @@ page {
 .ic-mini{
   width:30rpx;
   height: 30rpx;
+}
+.ic_eq{
+    width : 65rpx;
+    height: 64rpx;
 }
 
 /*** btn ***/
@@ -100,7 +112,6 @@ page {
 
 /*** table ***/
 table{
-  font-size: 24rpx;
   display: flex;
   flex-direction: column;
   width:100%;
@@ -108,6 +119,7 @@ table{
 }
 tr{
   display: flex;
+  align-items: center;
   margin: 0 10px;
   border-bottom: 1px solid #ddd;
 }
@@ -116,25 +128,30 @@ tr:last-child{
   padding: 0 10px;
 }
 td{
+  padding: 10rpx 0;
   text-align: center;
-  height: 40px;
-  line-height: 40px;
 }
 .thead {
   font-weight: bolder;
 }
 
 .td-t{
-  flex: .4;
-}
-.td-p{
   flex: .6;
 }
+.td-p{
+  flex: .4;
+}
 .td-n{
-  flex: 1;
+  flex: .6;
 }
 
-
+.td-pic{
+  display: flex;
+  align-items: center;
+}
+.td-pic image{
+  margin-right: 10rpx;
+}
 .total{
     position: fixed;
     bottom: 0;

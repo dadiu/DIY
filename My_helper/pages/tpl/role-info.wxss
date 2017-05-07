@@ -4,7 +4,7 @@
   padding: 20rpx;
   display: flex;
   background: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 10rpx;
   border-bottom: 1px solid #ddd;
 }
 .role-info{

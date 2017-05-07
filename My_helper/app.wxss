@@ -17,9 +17,13 @@ page {
 }
 
 /*** common ***/
+.mr10{
+  margin-right: 10rpx;
+}
 .mr20 {
   margin-right: 20rpx;
 }
+
 .mt20{
   margin-top: 20rpx;
 }
@@ -118,14 +122,20 @@ table{
   background: #fff;
 }
 tr{
+  position: relative;
   display: flex;
   align-items: center;
-  margin: 0 10px;
-  border-bottom: 1px solid #ddd;
-}
-tr:last-child{
-  margin: 0;
   padding: 0 10px;
+}
+tr:not(:last-child):after{
+  position: absolute;
+  left: 5%;
+  bottom:0;
+  width:90%;
+  content : "";
+  height:3rpx;
+  background: #ddd;
+
 }
 td{
   padding: 10rpx 0;
@@ -144,13 +154,15 @@ td{
 .td-n{
   flex: .6;
 }
-
+.td-l{
+  flex: .3;
+}
 .td-pic{
   display: flex;
   align-items: center;
 }
 .td-pic image{
-  margin-right: 10rpx;
+  margin-right: 20rpx;
 }
 .total{
     position: fixed;

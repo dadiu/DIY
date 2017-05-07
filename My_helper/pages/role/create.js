@@ -21,7 +21,7 @@ Page({
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
     storageProInfo = wx.getStorageSync('pro-info');
-    console.log(storageProInfo);
+    // console.log(storageProInfo);
     this.getProList();
   },
 
@@ -189,9 +189,9 @@ Page({
       proInfo.list[index].n = 0;
     });
 
-    // 跳转去首页
-    wx.redirectTo({
-      url: '../welcome/welcome'
+    // 关闭当前页 返回首页
+    wx.navigateBack({
+      delta: 2
     })
   },
 
@@ -207,7 +207,7 @@ Page({
         newList.push(val)
       }
     });
-    console.log(newList);
+    // console.log(newList);
     return newList;
   },
 
@@ -243,31 +243,32 @@ Page({
     let valArr = e.detail.value;
     let checkForm = app.regFn(valArr);
     // console.log(checkForm);
-    if (checkForm !== undefined) {
-      this.setData({
-        isError: true,
-        error: checkForm
-      })
-    } else {
+    
+    if (checkForm === undefined) {
+      
+      let roleList = [
+        {area : valArr.area, role : valArr.role, level: valArr.level}
+      ];
+      // 储存本地数据
+      wx.setStorageSync('role-list', roleList);
 
-      roleInfo.level = valArr.level;
+      // 本页展示
+      roleList[0].time = roleInfo.time;
 
       this.setData({
-        roleInfo: roleInfo
+        roleInfo: roleList[0]
       });
-
-      // 重新储存角色数据
-      let setRoleInfo = {
-        role : roleInfo.role,
-        area : roleInfo.area,
-        level : roleInfo.level
-      };
-      wx.setStorageSync('role-list', [roleInfo]);
 
       this.setData({
         isError: false,
         isChangeLevel: false
       })
+    } else {
+      this.setData({
+        isError: true,
+        error: checkForm
+      })
+
     }
   }
 })

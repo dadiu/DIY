@@ -9,6 +9,9 @@
 .btn-min{
     flex:1;
 }
+button[size="mini"]{
+    padding: 0 0.9em!important;
+}
 .number-item{
     flex: 8;
 }

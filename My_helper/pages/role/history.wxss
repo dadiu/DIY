@@ -1,3 +1,8 @@
 /* pages/role/history.wxss */
 
 @import '../tpl/role-info.wxss';
+
+td{
+    height: 48rpx;
+    line-height: 48rpx;
+}

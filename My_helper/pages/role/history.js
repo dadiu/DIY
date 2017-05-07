@@ -9,7 +9,7 @@ Page({
     roleInfo: {},
     historyList: [],
     isWait: false,
-    removeClassName: ""
+    removeClassName: null
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -103,12 +103,12 @@ Page({
     let _t = this;
     let data = event.currentTarget.dataset;
     let id = data.id;
+    let dataIdx = parseInt(data.idx, 10);
 
     let waitList = wx.getStorageSync('pro-info');
 
     // 移除这条数据
     function removeThis() {
-
 
       // id不存在，为进行中的道具环
       if (id === undefined) {
@@ -124,6 +124,10 @@ Page({
 
         storageHistoryList.splice(idx, 1);
         
+        // console.log('storageHistoryList');
+        // console.log(storageHistoryList);
+        // console.log('storageHistoryInfo');
+        // console.log(storageHistoryInfo);
         // 重新储存数据
         wx.setStorageSync('history-list', storageHistoryList);
         wx.setStorageSync('history-info', storageHistoryInfo);
@@ -148,8 +152,9 @@ Page({
     }
 
     _t.setData({
-      removeClassName : 'bg_gray'
+      removeClassName : dataIdx
     })
+
     wx.showModal({
       title: '',
       content: '确定要删除这条信息？',
@@ -159,12 +164,15 @@ Page({
 
           console.log('确定删除')
           removeThis();
+          _t.setData({
+            removeClassName : null
+          })
           resetThis(_t.getHistoryList);
 
         } else if (res.cancel) {
           console.log('取消删除')
           _t.setData({
-            removeClassName : ' '
+            removeClassName : null
           })
         }
       }

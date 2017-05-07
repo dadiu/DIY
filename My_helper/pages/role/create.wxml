@@ -10,6 +10,29 @@
         {{error}}
       </view>
       <view class="form-item">
+        <label for="areaName" class="form-label">大区名</label>
+        <input type="text" 
+            placeholder="1~4位中文" maxlength="50" 
+            id="areaName" 
+            class="form-input" 
+            placeholder-class="form-placeholder" 
+            name="area" 
+            bindfocus="hideError" 
+            value="{{roleInfo.area}}" />
+      </view>
+      <view class="form-item">
+        <label for="roleName" class="form-label">角色名</label>
+        <input type="text" 
+            placeholder="1~6位中文" 
+            maxlength="50" 
+            id="roleName" 
+            class="form-input" 
+            placeholder-class="form-placeholder" 
+            name="role" 
+            bindfocus="hideError"  
+            value="{{roleInfo.role}}"/>
+      </view>
+      <view class="form-item">
         <label for="level" class="form-label">当前等级</label>
         <input type="number" placeholder="1~3位纯数字" maxlength="3" id="level" class="form-input" placeholder-class="form-placeholder" name="level" bindfocus="hideError" />
       </view>
@@ -23,14 +46,14 @@
   </view><!-- /role -->
   <table>
     <tr class="thead">
-      <td class="td-t">道具名</td>
-      <td class="td-p">参考价<text class="fc_gray">(金币)</text></td>
+      <td class="td-t td-pic">道具名</td>
+      <td class="td-p">参考价</td>
       <td class="td-n">数量</td>
     </tr>
     <block wx:for="{{proList}}" wx:for-index="idx" wx:key="idx">
       <tr>
         <td class="td-t td-pic">
-          <image src="../../img/xyq/{{item.ic}}.png" class="ic_eq"></image>
+          <image src="../../img/xyq/{{item.ic}}.png" class="ic_eq" wx:if="{{item.ic}}"></image>
           <text>{{item.t}}</text>
         </td>
         <td class="td-p">{{item.p}}</td>
@@ -42,22 +65,17 @@
       </tr>
     </block>
   </table>
-  <view class="form-tips mt20 mb50">* 长按道具价格，可进行编辑</view>
+  <view class="form-tips mt20 mb50">* 价格取自“一笑倾城”大区的平均值，后期会增加自定义价格</view>
 
   <!-- total -->
   <table class="total">
     <tr>
       <td class="td-t">总额</td>
-      <td class="td-p">{{total}}</td>
+      <td class="td-p">{{total}}金币</td>
       <td class="td-n">
-        {{total}}
+        <button size="mini" class="btn-primary mr20" bindtap="end">跑完</button>
+        <button size="mini" class="btn-default" bindtap="wait">暂停</button>
       </td>
     </tr>
   </table>
-  <!--<view class="classname">
-  
-        <button size="mini" class="btn-default" bindtap="end">跑完了</button>
-        <button size="mini" class="btn-default" bindtap="wait">休息会儿</button>
-  </view>-->
-  <!-- /total -->
 </view>

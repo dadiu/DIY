@@ -16,11 +16,13 @@ Page({
     })
   },
   onLoad: function () {
-    let _t = this;
 
     // 测试 清除缓存数据
     // wx.clearStorageSync();
-
+  },
+  onShow : function(){
+    
+    let _t = this;
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function (userInfo) {
       //更新数据
@@ -81,15 +83,15 @@ Page({
 
     let id = 'D' + app.getTime().time;
     console.log(id);
-    if (historyInfo[id]) {
+    console.log(historyInfo[id]);
+    if (historyInfo[id] !== undefined) {
       wx.showModal({
         title: '',
         content: '今天已跑完，详情在“历史记录”查看',
         confirmColor: '#7e57c2',
         success: function (res) {
           if (res.confirm) {
-
-            // console.log('用户点击确定')
+            console.log('用户点击确定')
             // 去历史记录页
             wx.navigateTo({
               url: '../role/history'

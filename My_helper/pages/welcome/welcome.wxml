@@ -6,6 +6,7 @@
   <text class="userinfo-nickname">hello! {{userInfo.nickName}}</text>
   <view class="btn-bar-center btn-bar-both mt100">
     <button class="btn btn-default" wx:if="{{isRole}}"  bindtap="creatRole">创建角色</button>
+    <!--<button class="btn btn-default" wx:if="{{!isRole}}" bindtap="clearAll">清除记录</button>-->
     <button class="btn btn-default" wx:if="{{isHistory}}" bindtap="checkHistory">历史记录</button>
     <button class="btn btn-default" wx:if="{{!isRole}}" bindtap="creatPro">新增道具环</button>
   </view>

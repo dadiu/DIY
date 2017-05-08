@@ -19,8 +19,6 @@ Page({
 
     // 测试 清除缓存数据
     // wx.clearStorageSync();
-  },
-  onShow : function(){
     
     let _t = this;
     //调用应用实例的方法获取全局数据
@@ -30,6 +28,8 @@ Page({
         userInfo: userInfo
       })
     })
+  },
+  onShow : function(){
 
     historyList = wx.getStorageSync('history-list');
     historyInfo = wx.getStorageSync('history-info');
@@ -119,7 +119,33 @@ Page({
     wx.navigateTo({
       url: '../role/history'
     })
-  }
+  },
 
+  /**
+   * 清除记录
+   */
+  clearAll: function(){
+    let _t = this;
+    wx.showModal({
+      title: '',
+      content: '确定后所有历史记录都会消失，慎点0.0',
+      success: function (res) {
+
+        if (res.confirm) {
+          
+          console.log('确定删除');
+          wx.clearStorageSync();
+          
+          // 关闭当前页 返回首页
+          wx.reLaunch({
+            url: '../welcome/welcome'
+          })
+
+        } else if (res.cancel) {
+          console.log('取消删除')
+        }
+      }
+    })
+  }
 
 })

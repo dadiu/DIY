@@ -190,8 +190,8 @@ Page({
     });
 
     // 关闭当前页 返回首页
-    wx.navigateBack({
-      delta: 2
+    wx.reLaunch({
+      url: '../welcome/welcome'
     })
   },
 

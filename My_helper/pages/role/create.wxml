@@ -4,45 +4,8 @@
 <view class="container">
 
   <!-- role -->
-  <view catchlongtap="changeLevel">
-    <form class="form" bindsubmit="changeLevelSubmit" bindreset="changeLevelReset" wx:if="{{isChangeLevel}}">
-      <view class="form-error" wx:if="{{isError}}">
-        {{error}}
-      </view>
-      <view class="form-item">
-        <label for="areaName" class="form-label">大区名</label>
-        <input type="text" 
-            placeholder="1~4位中文" maxlength="50" 
-            id="areaName" 
-            class="form-input" 
-            placeholder-class="form-placeholder" 
-            name="area" 
-            bindfocus="hideError" 
-            value="{{roleInfo.area}}" />
-      </view>
-      <view class="form-item">
-        <label for="roleName" class="form-label">角色名</label>
-        <input type="text" 
-            placeholder="1~6位中文" 
-            maxlength="50" 
-            id="roleName" 
-            class="form-input" 
-            placeholder-class="form-placeholder" 
-            name="role" 
-            bindfocus="hideError"  
-            value="{{roleInfo.role}}"/>
-      </view>
-      <view class="form-item">
-        <label for="level" class="form-label">当前等级</label>
-        <input type="number" placeholder="1~3位纯数字" maxlength="3" id="level" class="form-input" placeholder-class="form-placeholder" name="level" bindfocus="hideError" />
-      </view>
-      <view class="form-item ">
-        <label for="level" class="form-label"></label>
-        <button size="mini" form-type="submit" class="btn-primary mr20">更新</button>
-        <button size="mini" form-type="reset" class="btn-black">取消</button>
-      </view>
-    </form>
-    <template is="roleInfo" data="{{roleInfo}}" wx:else></template>
+  <view>
+    <template is="roleInfo" data="{{roleInfo}}"></template>
   </view><!-- /role -->
   <table>
     <tr class="thead">
@@ -69,13 +32,13 @@
 
   <!-- total -->
   <table class="total">
-    <tr>
-      <td class="td-t">总额</td>
+      <tr>
+        <td class="td-t">总额</td>
       <td class="td-p">{{total}}金币</td>
       <td class="td-n">
         <button size="mini" class="btn-primary mr20" bindtap="end">跑完</button>
         <button size="mini" class="btn-default" bindtap="wait">暂停</button>
       </td>
-    </tr>
+      </tr> 
   </table>
 </view>

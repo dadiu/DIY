@@ -15,7 +15,6 @@ Page({
     roleInfo: {},
     proList: [],
     total: 0,
-    isChangeLevel: false,
     isError: false
   },
   onLoad: function (options) {
@@ -209,66 +208,5 @@ Page({
     });
     // console.log(newList);
     return newList;
-  },
-
-  /**
-   * 修改等级
-   */
-  changeLevel: function () {
-    this.setData({
-      isChangeLevel: true
-    })
-  },
-  /**
-   * 
-   */
-  hideError: function () {
-    this.setData({
-      isError: false
-    })
-  },
-  /**
-   * 取消更改等级
-   */
-  changeLevelReset: function () {
-    this.setData({
-      isChangeLevel: false
-    });
-  },
-
-  /**
-   * 储存修改的等级
-   */
-  changeLevelSubmit: function (e) {
-    let valArr = e.detail.value;
-    let checkForm = app.regFn(valArr);
-    // console.log(checkForm);
-    
-    if (checkForm === undefined) {
-      
-      let roleList = [
-        {area : valArr.area, role : valArr.role, level: valArr.level}
-      ];
-      // 储存本地数据
-      wx.setStorageSync('role-list', roleList);
-
-      // 本页展示
-      roleList[0].time = roleInfo.time;
-
-      this.setData({
-        roleInfo: roleList[0]
-      });
-
-      this.setData({
-        isError: false,
-        isChangeLevel: false
-      })
-    } else {
-      this.setData({
-        isError: true,
-        error: checkForm
-      })
-
-    }
   }
 })

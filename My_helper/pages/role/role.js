@@ -36,7 +36,7 @@ Page({
       ];
       wx.setStorageSync('role-list', roleList);
       
-      wx.redirectTo({
+      wx.reLaunch({
         url: 'create'
       })
     }

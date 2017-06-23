@@ -70,7 +70,8 @@ Page({
    * 创建角色
    */
   creatRole: function () {
-    wx.redirectTo({
+    console.log("11");
+    wx.navigateTo({
       url: '../role/role'
     })
   },
@@ -146,6 +147,13 @@ Page({
         }
       }
     })
+  },
+
+  /**
+   * 
+   */
+  showChangeBtns : function(){
+    
   }
 
 })

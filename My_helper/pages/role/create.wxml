@@ -4,7 +4,7 @@
 <view class="container">
 
   <!-- role -->
-  <view>
+  <view catchtap="showChangeBtns">
     <template is="roleInfo" data="{{roleInfo}}"></template>
   </view><!-- /role -->
   <table>

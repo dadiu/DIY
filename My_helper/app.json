@@ -1,15 +1,16 @@
 {
-  "pages":[
-    "pages/m3g/heroList",
+  "pages": [
+    "pages/devlop/edit",
     "pages/welcome/welcome",
     "pages/role/create",
     "pages/role/history",
     "pages/role/detail",
     "pages/role/role",
+    "pages/m3g/heroList",
     "pages/logs/logs",
     "pages/index/index"
   ],
-  "window":{
+  "window": {
     "navigationBarBackgroundColor": "#333",
     "navigationBarTitleText": "大丢的小助手",
     "backgroundColor": "#f5f6f6",
@@ -29,8 +30,8 @@
         "selectedIconPath": "./img/icon_select.png"
       },
       {
-        "pagePath": "pages/m3g/heroList",
-        "text": "梦三国",
+        "pagePath": "pages/devlop/edit",
+        "text": "潜能果",
         "iconPath": "./img/icon.png",
         "selectedIconPath": "./img/icon_select.png"
       }

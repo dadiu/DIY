@@ -2,7 +2,7 @@
 /**app.wxss**/
 
 page {
-  background: #efefef;
+  background: #efeff4;
 }
 .container {
   font-family: "Microsoft YaHei";
@@ -48,8 +48,14 @@ page {
 .bg_gray{
   background: #ccc;
 }
+.bg_white{
+  background: #fafafa;
+}
 .fc_gray{
   color: #999;
+}
+.fc-purple{
+  color: #7e57c2;
 }
 .txt_l{
   text-align: left !important;
@@ -102,12 +108,12 @@ page {
   line-height: 32px;
 }
 .btn-primary{
-  background: #7e57c2;
-  color:#fff;
+  background: #09bb07;
+  color:#fafafa;
 }
 .btn-default{
-  background: #fff;
-  color:#333;
+  background: #fbfafc;
+  color:#000;
 }
 .btn-gray{
   background: #e8e8e8;
@@ -119,7 +125,7 @@ table{
   display: flex;
   flex-direction: column;
   width:100%;
-  background: #fff;
+  background: #fafafa;
 }
 tr{
   position: relative;
@@ -141,7 +147,7 @@ td{
   padding: 10rpx 0;
   text-align: center;
 }
-.thead {
+.thead, strong {
   font-weight: bolder;
 }
 
@@ -168,7 +174,7 @@ td{
     position: fixed;
     bottom: 0;
     left: 0;
-    background: #bbb;
+    background: #eaeaea;
     color: #333;
 }
 
@@ -192,7 +198,7 @@ input{
 .form-item{
   position: relative;
   padding: 0 20rpx;
-  background: #fff;
+  background: #fafafa;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -235,4 +241,20 @@ form-item:last-child{
 
 
 
-/*** animate ***/
+/*** tab ***/
+.tab-title{
+  display: flex;
+}
+.tab-title-item{
+  padding: 30rpx 0;
+  flex-grow: 1;
+  text-align: center;
+  background: #eaeaea;
+  border-bottom:1px solid #ccc;
+}
+.tab-title-item:not(:last-child){
+  border-right: 1px solid #ccc;
+}
+.tab-title-item-crt{
+  background: #fafafa;
+} 

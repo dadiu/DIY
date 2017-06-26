@@ -1,39 +1,82 @@
 // pages/devlop/edit.js
+
+var app = getApp();
+var DATA = require('../../data/devlop-data.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    showTab : 1,
+    tabData : [
+      {
+        id : 1,
+        txt: "潜能果计算"
+      },
+      {
+        id : 2,
+        txt: "潜能果组合"
+      }
+    ],
     FIRSTNUM : 3,
-    UNIT : 1000,
-    endNum :0
+    UNIT : 0.1,   // 亿
+    endNum :0,
+    isError: false,
+    error : '',
+    seasonData : DATA.season,
+    skyData: DATA.sky
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    // console.log(DATA);
+  },
+
+  changeTabFn : function(e){
+    let showid = e.currentTarget.dataset.showid;
+
+    this.setData({
+      showTab: showid
+    })
   },
 
   hideError : function(){
-
+    this.setData({
+      isError: false
+      })
   },
 
   computation: function (e){
 
-    let val = e.detail.value;
-    console.log(val);
+    let valArr = e.detail.value;
+    var checkForm = app.regFn(valArr);
+    
 
-    let myNum = parseInt(val.myNum, 10);
-    let wantNum = parseInt(val.wantNum, 10);
+    if (checkForm === undefined){
 
-    let endNum = (myNum + 3 + wantNum + 2) * (wantNum - myNum) / 2;
+      let myNum = parseInt(valArr.myNum, 10);
+      let wantNum = parseInt(valArr.wantNum, 10);
 
-    this.setData({
-      endNum: endNum*1000
-    })
+      let endNum = ((this.data.FIRSTNUM + myNum) + (wantNum + this.data.FIRSTNUM - 1)) * (wantNum - myNum) / 2;
+
+      this.setData({
+        isError: false,
+        error: '',
+        endNum: (endNum * this.data.UNIT).toFixed(2)
+      })
+
+    } else {
+
+      this.setData({
+        isError : true,
+        error : checkForm,
+        endNum : 0
+      })
+    }
     
   },
 

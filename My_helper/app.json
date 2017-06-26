@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/devlop/edit",
     "pages/welcome/welcome",
+    "pages/devlop/edit",
     "pages/role/create",
     "pages/role/history",
     "pages/role/detail",
@@ -11,20 +11,21 @@
     "pages/index/index"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#333",
+    "navigationBarBackgroundColor": "#37383b",
+    "navigationBarTextStyle" : "white ",
     "navigationBarTitleText": "大丢的小助手",
     "backgroundColor": "#f5f6f6",
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "white",
     "enablePullDownRefresh": false
   },
   "tabBar": {
     "color": "#9a9a9a",
-    "selectedColor": "#3b6ad2",
+    "selectedColor": "#09bb07",
     "backgroundColor": "#fff",
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/welcome/welcome",
+        "pagePath": "pages/welcome/welcome", 
         "text": "道具环",
         "iconPath": "./img/icon.png",
         "selectedIconPath": "./img/icon_select.png"

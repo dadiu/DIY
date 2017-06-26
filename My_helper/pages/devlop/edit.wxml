@@ -1,33 +1,77 @@
 <!--pages/devlop/edit.wxml-->
 <view class="container">
-
-   <!-- 计算潜能果 -->
-    <view class="creatRole">
-        <view class="t-head">
-            <!--<image src="/img/ic-user.png" class="t-head-img ic-min"></image>-->
-            <text class="t-head-txt">请输入目标潜能果数量</text>
-        </view>
-        <form class="form" bindsubmit="computation">
-            <view class="form-error" wx:if="{{isError}}">
-                {{error}}
-            </view>
-            <view class="form-item">
-                <label for="myNum" class="form-label">当前个数</label>
-                <input type="number" placeholder="1-2位纯数字" maxlength="50" id="myNum" class="form-input" placeholder-class="form-placeholder" name="myNum" bindfocus="hideError"/>
-            </view>
-            <view class="form-item">
-                <label for="wantNum" class="form-label">目标个数</label>
-                <input type="number" placeholder="1-2位纯数字" maxlength="50" id="wantNum" class="form-input" placeholder-class="form-placeholder" name="wantNum" bindfocus="hideError"/>
-            </view><view class="form-item">
-                <label for="wantNum" class="form-label">所需经验</label>
-                <text>{{endNum}}</text>
-            </view>
-            <view class="btn-bar-center">
-                <button form-type="submit" class="btn btn-primary">一键计算</button>
-            </view>
-            <view class="form-tips">69级玩家最多可兑换12个潜能果，</view>
-            <view class="form-tips">70～89级玩家最多可兑换24个潜能果，</view>
-            <view class="form-tips">90～109级玩家最多可兑换36个潜能果。</view>
-        </form>
+  <view class="tab-title">
+    <text wx:for="{{tabData}}" wx:key="tabtitle" class="tab-title-item {{showTab === item.id ? 'tab-title-item-crt' : ''}}" bindtap="changeTabFn" data-showid="{{item.id}}">{{item.txt}}</text>
+  </view>
+  <!-- 计算潜能果 -->
+  <view class="editDevlop" hidden="{{showTab !== 1}}">
+    
+    <view class="t-head">
+      <strong>可兑换个数</strong> - 69级(12个)，89级(24个)，109级(36个)
     </view>
+    <form class="form" bindsubmit="computation">
+      <view class="form-error" wx:if="{{isError}}">
+        {{error}}
+      </view>
+      <view class="form-item">
+        <label for="myNum" class="form-label">当前个数</label>
+        <input type="number" placeholder="1-2位纯数字" maxlength="2" id="myNum" class="form-input" placeholder-class="form-placeholder" name="myNum" bindfocus="hideError" />
+      </view>
+      <view class="form-item">
+        <label for="wantNum" class="form-label">目标个数</label>
+        <input type="number" placeholder="1-2位纯数字" maxlength="2" id="wantNum" class="form-input" placeholder-class="form-placeholder" name="wantNum" bindfocus="hideError" />
+      </view>
+      <view class="form-item">
+        <label for="wantNum" class="form-label">所需经验</label>
+        <text>{{endNum}} 亿</text>
+      </view>
+      <view class="btn-bar-center">
+        <button form-type="submit" class="btn btn-primary">一键计算</button>
+      </view>
+      <view class="form-tips">* 仅支持手游的换算</view>
+    </form>
+  </view>
+
+  <!-- 潜能果图案 -->
+  <view class="stateDevlop" hidden="{{showTab !== 2}}">
+    <view class="t-head">
+      <strong>四时</strong> - 图案仅需要同种颜色即可，图形不可旋转。
+    </view>
+    <table>
+      <tr class="thead">
+        <td class="td-p">组合名称</td>
+        <td class="td-n">图案</td>
+        <td class="td-p">组合效果</td>
+      </tr>
+      <block wx:for="{{seasonData}}" wx:key="season">
+        <tr>
+          <td class="td-p">{{item.name}}</td>
+          <td class="td-n">
+            <image src="/img/xyq-devlop/{{item.pic}}.png" class="devlop-season-pic"></image>
+          </td>
+          <td class="td-p">{{item.status}}</td>
+        </tr>
+      </block>
+    </table>
+
+    <view class="t-head">
+      <strong>天象</strong> - 要求颜色和图案完全一致才会起效，图形不可旋转。
+    </view>
+    <table>
+      <tr class="thead">
+        <td class="td-p">组合名称</td>
+        <td class="td-n">图案</td>
+        <td class="td-p">组合效果</td>
+      </tr>
+      <block wx:for="{{skyData}}" wx:key="sky">
+        <tr>
+          <td class="td-p">{{item.name}}</td>
+          <td class="td-n">
+            <image src="/img/xyq-devlop/{{item.pic}}.png" class="devlop-sky-pic"></image>
+          </td>
+          <td class="td-p">{{item.status}}</td>
+        </tr>
+      </block>
+    </table>
+  </view>
 </view>

@@ -34,7 +34,9 @@ App({
   reg : {
     'area' : {"reg": /^[\u4E00-\u9FA5\uF900-\uFA2D]{1,4}$/,"err":"大区名为1~4位中文，不支持特殊字符"},
     'role' : {"reg": /^[\w-~!@#$%^&*()\\,.\/\?\{\}\[\]\u4E00-\u9FA5\uF900-\uFA2D]{1,6}$/,"err":"角色名为1~6位中文，不支持特殊字符"},
-    'level' : {"reg": /^[0-9]{2,3}$/,"err":"等级为2-3位纯数字"}
+    'level': { "reg": /^[0-9]{2,3}$/, "err": "等级为2-3位纯数字" },
+    'myNum': { "reg": /^[0-9]{1,2}$/, "err": "潜能果个数为1-2位纯数字" },
+    'wantNum': { "reg": /^[0-9]{1,2}$/, "err": "潜能果个数为1-2位纯数字" }
   },
   
   /**
@@ -42,13 +44,13 @@ App({
    * @param 
    */
   regFn : function(ob){
-    console.log(ob)
+
     let key = null;
     let _t = this;
 
-    if(ob.level){
-      ob.level = parseInt(ob.level,10);
-    };
+    // if(ob.level){
+    //   ob.level = parseInt(ob.level,10);
+    // };
 
     for(key in ob){
       if(!_t.reg[key].reg.test(ob[key])){

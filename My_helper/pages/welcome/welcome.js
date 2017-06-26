@@ -70,7 +70,7 @@ Page({
    * 创建角色
    */
   creatRole: function () {
-    console.log("11");
+
     wx.navigateTo({
       url: '../role/role'
     })
@@ -83,8 +83,8 @@ Page({
   creatPro: function () {
 
     let id = 'D' + app.getTime().time;
-    console.log(id);
-    console.log(historyInfo[id]);
+    // console.log(id);
+    // console.log(historyInfo[id]);
     if (historyInfo[id] !== undefined) {
       wx.showModal({
         title: '',

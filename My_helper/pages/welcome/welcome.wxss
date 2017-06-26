@@ -1,7 +1,5 @@
 /* pages/welcome/welcome.wxss */
-page{
-    background: #7e57c2;
-}
+
 
 .container{
     text-align: center;
@@ -16,7 +14,6 @@ page{
 }
 .userinfo-nickname{
     margin-top: 50rpx;
-    color: #fff;
 }
 .mt100{
     margin-top: 100rpx;

@@ -1,0 +1,50 @@
+<!--pages/guangying/herodetail.wxml-->
+<view class="bg-fixed"></view>
+<view class="hero-detail" wx:if="heroData !== null">
+  <!-- name -->
+  <view class="hero-info">
+    <image src="http://www.goodmoba.com/m/images/dname_icon01.png" class="hero-info-ic"></image>
+    <text class="hero-info-name">{{heroData.honor_china}} · {{heroData.name_china}}</text>
+    <image src="http://www.goodmoba.com/m/images/dname_icon02.png" class="hero-info-ic"></image>
+  </view>
+
+  <!-- swiper -->
+  <swiper class="swiper" indicator-dots="true" indicator-color="#2051bb" indicator-active-color="#ffd301" circular="true">
+    <block wx:for="{{heroData.skins}}" wx:key="skin">
+      <swiper-item class="swiper-item">
+        <image src="{{item.pic}}" alt="{{item.name}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <!-- skill -->
+  <view class="skill-tab">
+
+    <!-- skill-title -->
+    <view class="skill-title">
+      <view class="skill-title-item {{selected === idx ? 'skill-title-crt' : ''}}" 
+      wx:for="{{heroData.skills}}" wx:for-index="idx" wx:key="skillname" data-idx="{{idx}}" bindtap="changeCurrent">
+        <image src="{{item.pic}}" class="skill-title-pic"></image>
+        <text class="skill-title-name">{{item.name}}</text>
+      </view>
+    </view>
+
+    <!-- skill-main -->
+    <view class="skill-main">
+      <view class="skill-main-txt" wx:for="{{heroData.skills[selected].desc}}">{{item}}</view>
+
+      <!-- skill-level -->
+      <view class="skill-level">
+        <view class="skill-level-item" wx:for="{{heroData.skills[selected].levels}}" wx:key="level">
+          <view class="skill-level-left">
+            <image src="{{item.pic}}" class="skill-level-pic"></image>
+          </view>
+          <view class="skill-level-right">
+            <text class="skill-level-name">{{item.name}}</text>
+            <text class="skill-level-desc">{{item.desc}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

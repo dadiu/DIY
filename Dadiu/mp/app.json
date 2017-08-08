@@ -1,12 +1,13 @@
 {
   "pages": [
+    "pages/guangying/herolist",
+    "pages/guangying/herodetail",
     "pages/welcome/welcome",
     "pages/devlop/edit",
     "pages/role/create",
     "pages/role/history",
     "pages/role/detail",
     "pages/role/role",
-    "pages/m3g/heroList",
     "pages/logs/logs",
     "pages/index/index"
   ],
@@ -24,6 +25,12 @@
     "backgroundColor": "#fff",
     "borderStyle": "white",
     "list": [
+      {
+        "pagePath": "pages/guangying/herolist",
+        "text": "光影对决",
+        "iconPath": "./img/icon.png",
+        "selectedIconPath": "./img/icon_select.png"
+      },
       {
         "pagePath": "pages/welcome/welcome", 
         "text": "道具环",

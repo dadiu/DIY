@@ -1,0 +1,153 @@
+module.exports = [{
+    "id": "1",
+    "unit_id": "U001",
+    "name_china": "流云",
+    "honor_china": "光之子",
+    "icon2": "Hero\/img_X_U001.png",
+    "icon5": "XuanChuan\/Img_Hero_U001.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U001.html"
+}, {
+    "id": "5",
+    "unit_id": "U005",
+    "name_china": "古瑟",
+    "honor_china": "夜影",
+    "icon2": "Hero\/img_X_U005.png",
+    "icon5": "XuanChuan\/Img_Hero_U005.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U005.html"
+}, {
+    "id": "20",
+    "unit_id": "U020",
+    "name_china": "雅娜",
+    "honor_china": "光之翼",
+    "icon2": "Hero\/img_X_U020.png",
+    "icon5": "XuanChuan\/Img_Hero_U020.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U020.html"
+}, {
+    "id": "17",
+    "unit_id": "U017",
+    "name_china": "蕾拉",
+    "honor_china": "红发船长",
+    "icon2": "Hero\/img_X_U017.png",
+    "icon5": "XuanChuan\/Img_Hero_U017.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U017.html"
+}, {
+    "id": "21",
+    "unit_id": "U021",
+    "name_china": "伊莎贝拉",
+    "honor_china": "蔷薇剑圣",
+    "icon2": "Hero\/img_X_U021.png",
+    "icon5": "XuanChuan\/Img_Hero_U021.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U021.html"
+}, {
+    "id": "9",
+    "unit_id": "U009",
+    "name_china": "英佩莉兹",
+    "honor_china": "魔女",
+    "icon2": "Hero\/img_X_U009.png",
+    "icon5": "XuanChuan\/Img_Hero_U009.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U009.html"
+}, {
+    "id": "6",
+    "unit_id": "U006",
+    "name_china": "晓葵",
+    "honor_china": "幻狐",
+    "icon2": "Hero\/img_X_U006.png",
+    "icon5": "XuanChuan\/Img_Hero_U006.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U006.html"
+}, {
+    "id": "10",
+    "unit_id": "U010",
+    "name_china": "乔",
+    "honor_china": "赏金猎人",
+    "icon2": "Hero\/img_X_U010.png",
+    "icon5": "XuanChuan\/Img_Hero_U010.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U010.html"
+}, {
+    "id": "13",
+    "unit_id": "U013",
+    "name_china": "真羽",
+    "honor_china": "青麟",
+    "icon2": "Hero\/img_X_U013.png",
+    "icon5": "XuanChuan\/Img_Hero_U013.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U013.html"
+}, {
+    "id": "7",
+    "unit_id": "U007",
+    "name_china": "阿尔",
+    "honor_china": "雪熊",
+    "icon2": "Hero\/img_X_U007.png",
+    "icon5": "XuanChuan\/Img_Hero_U007.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U007.html"
+}, {
+    "id": "12",
+    "unit_id": "U012",
+    "name_china": "赛文",
+    "honor_china": "金色闪电",
+    "icon2": "Hero\/img_X_U012.png",
+    "icon5": "XuanChuan\/Img_Hero_U012.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U012.html"
+}, {
+    "id": "18",
+    "unit_id": "U018",
+    "name_china": "扎克",
+    "honor_china": "摇滚狂鲨",
+    "icon2": "Hero\/img_X_U018.png",
+    "icon5": "XuanChuan\/Img_Hero_U018.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U018.html"
+}, {
+    "id": "11",
+    "unit_id": "U011",
+    "name_china": "巴莱",
+    "honor_china": "铁狼",
+    "icon2": "Hero\/img_X_U011.png",
+    "icon5": "XuanChuan\/Img_Hero_U011.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U011.html"
+}, {
+    "id": "3",
+    "unit_id": "U003",
+    "name_china": "敖战",
+    "honor_china": "守护者",
+    "icon2": "Hero\/img_X_U003.png",
+    "icon5": "XuanChuan\/Img_Hero_U003.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U003.html"
+}, {
+    "id": "14",
+    "unit_id": "U014",
+    "name_china": "钢牙",
+    "honor_china": "老顽童",
+    "icon2": "Hero\/img_X_U014.png",
+    "icon5": "XuanChuan\/Img_Hero_U014.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U014.html"
+}, {
+    "id": "8",
+    "unit_id": "U008",
+    "name_china": "奈索斯",
+    "honor_china": "血瞳",
+    "icon2": "Hero\/img_X_U008.png",
+    "icon5": "XuanChuan\/Img_Hero_U008.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U008.html"
+}, {
+    "id": "4",
+    "unit_id": "U004",
+    "name_china": "拉比",
+    "honor_china": "狩猎队长",
+    "icon2": "Hero\/img_X_U004.png",
+    "icon5": "XuanChuan\/Img_Hero_U004.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U004.html"
+}, {
+    "id": "2",
+    "unit_id": "U002",
+    "name_china": "莉莉丝",
+    "honor_china": "魔音",
+    "icon2": "Hero\/img_X_U002.png",
+    "icon5": "XuanChuan\/Img_Hero_U002.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U002.html"
+}, {
+    "id": "16",
+    "unit_id": "U016",
+    "name_china": "图德",
+    "honor_china": "石魔",
+    "icon2": "Hero\/img_X_U016.png",
+    "icon5": "XuanChuan\/Img_Hero_U016.png",
+    "arcurl": "http:\/\/www.goodmoba.com\/hero\/mobile\/U016.html"
+}]

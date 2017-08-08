@@ -1,0 +1,8 @@
+<!--pages/guangying/herolist.wxml-->
+<view class="bg-fixed"></view>
+<view class="list">
+  <view class="list-item" wx:for="{{heroData}}" wx:key="hero" bindtap="opendetail" data-unitid="{{item.unit_id}}">
+    <image src="http://www.goodmoba.com/static/db/Single/HeroIcon/img_X_{{item.unit_id}}.png" class="list-item-pic"></image>
+    <text class="list-item-name">{{item.name_china}}</text>
+  </view>
+</view>

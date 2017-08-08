@@ -1,0 +1,113 @@
+/* pages/guangying/herodetail.wxss */
+page{
+  font-size: 22rpx;
+  font-family: "\5FAE\8F6F\96C5\9ED1";
+}
+.bg-fixed{
+  position: fixed;
+  z-index: -1;
+  width: 750rpx;
+  height: 1334rpx;
+  background: url("http://www.goodmoba.com/m/images/fixed_bg.jpg") no-repeat center 0;
+  background-size: 750rpx 1334rpx;
+}
+.mark-green{
+  color: #00f800;
+  margin-right: 10rpx;
+}
+
+.hero-detail{
+  color: #fff;
+  padding: 50rpx 20rpx;
+}
+.hero-info{
+  width: 430rpx;
+  height: 71rpx;
+  background: url("http://www.goodmoba.com/m/images/dname_bg.png") no-repeat 0 0;
+  background-size: 100% 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+.hero-info-name{
+  font-size: 30rpx;
+  margin: 0 10rpx;
+}
+.hero-info-ic{
+  width: 33rpx;
+  height: 20rpx;
+}
+
+.swiper{
+  height: 580rpx;
+}
+.swiper-item{
+  text-align: center;
+}
+
+.skill-title{
+  display: flex;
+  margin-bottom: 50rpx;
+  padding:0 50rpx;
+}
+.skill-title-item{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  padding-top: 6rpx;
+  background: url("http://www.goodmoba.com/m/images/index_skill_bg.png") no-repeat center 0;
+  background-size: 110rpx 120rpx;
+}
+.skill-title-pic{
+  width: 110rpx;
+  height: 110rpx;
+  margin: 0 auto;
+  margin-bottom: 40rpx;
+}
+.skill-title-name{
+  margin: 0 auto;
+  width: 134rpx;
+  height: 38rpx;
+  line-height: 38rpx;
+  text-align: center;
+  background: url("http://www.goodmoba.com/m/images/skill_bg01.png") no-repeat 0 0;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+
+.skill-title-crt .skill-title-name{
+  color: #fcd104;
+  background-image: url("http://www.goodmoba.com/m/images/skill_bg02.png");
+}
+.skill-main{
+  padding:0 60rpx;
+}
+.skill-level{
+  padding: 50rpx 0;
+}
+.skill-level-item{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.skill-level-left{
+  margin-right: 20rpx;
+  width: 110rpx;
+  height: 124rpx;
+  padding-top: 10rpx;
+  background: url("http://www.goodmoba.com/m/images/index_skill_bg.png") no-repeat 0 0;
+  background-size: 110rpx 124rpx;
+}
+.skill-level-pic{
+  width: 110rpx;
+  height: 110rpx;
+}
+.skill-level-right{
+  display: flex;
+  flex-direction: column;
+}
+.skill-level-name{
+  font-weight: bold;
+  padding: 10rpx 0;
+  font-size: 24rpx;
+}

@@ -1,19 +1,21 @@
 {
   "pages": [
-    "pages/guangying/herolist",
-    "pages/guangying/herodetail",
-    "pages/welcome/welcome",
+    "pages/house/index",
+    "pages/house/result",
     "pages/devlop/edit",
+    "pages/welcome/welcome",
     "pages/role/create",
     "pages/role/history",
     "pages/role/detail",
     "pages/role/role",
     "pages/logs/logs",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/guangying/herolist",
+    "pages/guangying/herodetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#37383b",
-    "navigationBarTextStyle" : "white ",
+    "navigationBarTextStyle": "white ",
     "navigationBarTitleText": "大丢的小助手",
     "backgroundColor": "#f5f6f6",
     "backgroundTextStyle": "white",
@@ -26,20 +28,20 @@
     "borderStyle": "white",
     "list": [
       {
-        "pagePath": "pages/guangying/herolist",
-        "text": "光影对决",
-        "iconPath": "./img/icon.png",
-        "selectedIconPath": "./img/icon_select.png"
-      },
-      {
-        "pagePath": "pages/welcome/welcome", 
-        "text": "道具环",
-        "iconPath": "./img/icon.png",
-        "selectedIconPath": "./img/icon_select.png"
+        "pagePath" : "pages/house/index",
+        "text" : "二手房税",
+        "iconPath" : "./img/icon.png",
+        "selectedIconPath" : "./img/icon_select.png"
       },
       {
         "pagePath": "pages/devlop/edit",
         "text": "潜能果",
+        "iconPath": "./img/icon.png",
+        "selectedIconPath": "./img/icon_select.png"
+      },
+      {
+        "pagePath": "pages/welcome/welcome",
+        "text": "道具环",
         "iconPath": "./img/icon.png",
         "selectedIconPath": "./img/icon_select.png"
       }

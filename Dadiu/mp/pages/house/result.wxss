@@ -1,0 +1,24 @@
+/* pages/house/result.wxss */
+@import '../tpl/role-info.wxss';
+
+table:not(.total){
+  margin-bottom: 20rpx;
+}
+.td-t{
+  height: 48rpx;
+  line-height: 48rpx;
+}
+.td-t:nth-child(2n-1){
+  text-align: left;
+}
+.td-t:nth-child(2n){
+  text-align: right;
+}
+tr:not(:last-child)::after{
+  left: 3%;
+  width: 94%;
+}
+.total{
+  background: #333;
+  color: #fff;
+}

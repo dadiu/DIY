@@ -36,7 +36,12 @@ App({
     'role' : {"reg": /^[\w-~!@#$%^&*()\\,.\/\?\{\}\[\]\u4E00-\u9FA5\uF900-\uFA2D]{1,6}$/,"err":"角色名为1~6位中文，不支持特殊字符"},
     'level': { "reg": /^[0-9]{2,3}$/, "err": "等级为2-3位纯数字" },
     'myNum': { "reg": /^[0-9]{1,2}$/, "err": "潜能果个数为1-2位纯数字" },
-    'wantNum': { "reg": /^[0-9]{1,2}$/, "err": "潜能果个数为1-2位纯数字" }
+    'wantNum': { "reg": /^[0-9]{1,2}$/, "err": "潜能果个数为1-2位纯数字" },
+    // house
+    'myArea' : {'reg' : /^[0-9]{1,10}/, 'err' : '房子面积为小于10位的纯数字'},
+    'myBuy': { 'reg': /^[0-9]{1,10}/, 'err': '买入价为小于10位的纯数字'},
+    "mySell": { 'reg': /^[0-9]{1,10}/, 'err': '卖出价为小于10位的纯数字'},
+    "mySale": { 'reg': /^[0-9]{1,3}/, 'err': '中介折扣应小于等于100'}
   },
   
   /**
@@ -69,18 +74,33 @@ App({
     let i = 0;
     let enterNum = '';
 
-    if(len <= 3){
+    let maxLength = max ? max : 3;
+
+    if (len <= maxLength){
       return total;
     }
     else {
       for(; i < len; i++){
-        enterNum += num[i] + ((i + 1) % 3 == 0 && (i + 1) != len ? "," : ""); ;
+        enterNum += num[i] + ((i + 1) % maxLength == 0 && (i + 1) != len ? "," : ""); ;
       }
 
       return enterNum.split("").reverse().join("");
     }
   },
 
+
+  // 批量string 转 number
+  parseIntFormFn: function (arr) {
+
+    let key = null;
+    let newArr = {};
+
+    for (key in arr) {
+      newArr[key] = parseInt(arr[key], 10);
+    };
+
+    return newArr;
+  },
   
   /**
    * 获取当前时间

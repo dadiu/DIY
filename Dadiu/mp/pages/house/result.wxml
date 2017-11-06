@@ -1,0 +1,55 @@
+<!--pages/house/result.wxml-->
+
+<view class="container">
+
+  <!-- 合同价 -->
+  <view class="role">
+    <view class="role-info">
+      合同价
+    </view>
+    <view class="role-date">
+      {{sell}} 元
+    </view>
+  </view>
+
+  <!-- 买方费用 -->
+  <table>
+    <tr class="thead">
+      <td class="td-t">买方费用</td>
+      <td class="td-t">预计（元）</td>
+    </tr>
+    <block wx:for="{{buyList}}" wx:for-index="idx" wx:key="idx">
+      <tr>
+        <td class="td-t">
+          <text>{{item.name}}</text>
+        </td>
+        <td class="td-t">{{item.price}}</td>
+      </tr>
+    </block>
+  </table>
+
+  <!-- 卖方费用 -->
+  <table>
+    <tr class="thead">
+      <td class="td-t td-pic">卖方费用</td>
+      <td class="td-t">预计（元）</td>
+    </tr>
+    <block wx:for="{{sellList}}" wx:for-index="idx" wx:key="idx">
+      <tr>
+        <td class="td-t td-pic">
+          <text>{{item.name}}</text>
+        </td>
+        <td class="td-t">{{item.price}}</td>
+      </tr>
+    </block>
+  </table>
+  <!-- 总价 -->
+  <!-- total -->
+  <table class="total">
+    <tr>
+      <td class="td-t">总金额</td>
+      <td class="td-t">{{total}} 元</td>
+    </tr>
+  </table>
+  <!-- /total -->
+</view>

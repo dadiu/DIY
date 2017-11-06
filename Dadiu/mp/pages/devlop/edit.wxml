@@ -5,7 +5,7 @@
   </view>
   <!-- 计算潜能果 -->
   <view class="editDevlop" hidden="{{showTab !== 1}}">
-    
+
     <view class="t-head">
       <strong>可兑换个数</strong> - 69级(12个)，89级(24个)，109级(36个)
     </view>
@@ -22,8 +22,8 @@
         <input type="number" placeholder="1-2位纯数字" maxlength="2" id="wantNum" class="form-input" placeholder-class="form-placeholder" name="wantNum" bindfocus="hideError" />
       </view>
       <view class="form-item">
-        <label for="wantNum" class="form-label">所需经验</label>
-        <text>{{endNum}} 亿</text>
+        <label class="form-label">所需经验</label>
+        <text class="form-unit">{{endNum}} 亿</text>
       </view>
       <view class="btn-bar-center">
         <button form-type="submit" class="btn btn-primary">一键计算</button>

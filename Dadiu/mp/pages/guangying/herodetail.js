@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     var unit_id = options.unit_id;
     this.getData(unit_id);
   },
@@ -28,6 +29,8 @@ Page({
     this.setData({
       heroData: data
     })
+
+    console.log(data);
   },
 
   /**

@@ -39,5 +39,15 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (res) {
+
+    return {
+      title: '梦幻西游手游道具环统计'
+    }
   }
 })

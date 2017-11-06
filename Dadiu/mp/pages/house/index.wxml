@@ -1,0 +1,65 @@
+<!--pages/house/index.wxml-->
+<view class="container">
+  <!-- tab title -->
+  <view class="tab-title">
+    <text wx:for="{{tabData}}" wx:key="tabtitle" class="tab-title-item {{showTab === item.id ? 'tab-title-item-crt' : ''}}" bindtap="changeTabFn" data-showid="{{item.id}}">{{item.txt}}</text>
+  </view>
+
+  <!-- tab main 滨江区 -->
+  <view class="editDevlop" hidden="{{showTab !== 1}}">
+    <form class="form" bindsubmit='computationFn'>
+      <view class="form-error" wx:if="{{isError}}">
+        {{error}}
+      </view>
+
+      <!-- 网签不需要交易手续费 所以隐藏 -->
+      <!-- <view class="form-item">
+        <label class="form-label" for="myArea">
+          总面积</label>
+        <input type="number" class="form-input" id="myArea" name="myArea" placeholder='纯数字' maxlength="10"  bindfocus="hideError"></input>
+        <text class="form-unit">平米</text>
+      </view> -->
+
+      <view class="form-item">
+        <label class="form-label" for="myBuy">
+          买入价
+        </label>
+        <input type="number" class="form-input" id="myBuy" name="myBuy" placeholder='纯数字' maxlength="10"  bindfocus="hideError"></input>
+        <text class="form-unit">元</text>
+      </view>
+
+      <view class="form-item">
+        <label class="form-label" for="mySell">
+          卖出价
+        </label>
+        <input type="number" class="form-input" id="mySell" name="mySell" placeholder='纯数字' maxlength="10"  bindfocus="hideError"></input>
+        <text class="form-unit">元</text>
+      </view>
+
+      <view class="form-item">
+        <label class="form-label" for="mySale">
+          中介折扣
+          <!-- <icon type="info" size="10" color="gray" /> -->
+        </label>
+        <input type="number" class="form-input" id="mySale" name="mySale" placeholder='2位纯数字' maxlength="3" value="100"  bindfocus="hideError"></input>
+        <text class="form-unit">%</text>
+      </view>
+
+      <!-- 预留贷款月供 -->
+
+
+      <view class="btn-bar-center">
+        <button form-type="submit" class="btn btn-primary" >确 定</button>
+      </view>
+      <view class="form-tips">* 仅支持杭州滨江区商住房</view>
+    </form>
+  </view>
+
+  <!-- tab main 萧山区 -->
+  <view class="editDevlop" hidden="{{showTab !== 2}}">
+    <view class="t-head">
+      萧山区后续开放
+    </view>
+  </view>
+
+</view>

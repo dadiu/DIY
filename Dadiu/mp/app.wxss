@@ -216,16 +216,27 @@ form-item:last-child{
   margin-bottom: 20rpx;
 }
 .form-label{
+  position: relative;
   padding-left: 10rpx;
   height: 48px;
   line-height: 48px;
   width: 80rpx;
-  flex-grow: 1;
+  flex-grow: 2;
+}
+.form-label icon{
+  position: absolute;
+  left: -12rpx;
+  top: 10rpx;
 }
 .form-input{
-  flex-grow: 4;
+  flex-grow: 8;
   height: 48px;
   line-height: 48px;
+}
+.form-unit{
+  width:40rpx;
+  flex-grow:1;
+  text-align:right;
 }
 .form-tips{
   color: #aaa;

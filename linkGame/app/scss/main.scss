@@ -1,37 +1,208 @@
-
-*{
+* {
     padding: 0;
     margin: 0;
+    border: 0;
 }
-#btn-bar{
+
+$border-gray : 1px solid #aaa;
+#btn-bar {
     padding: 20px 0;
     text-align: center;
-    a{
+    a {
         display: inline-block;
         width: 120px;
         height: 40px;
         line-height: 40px;
         background-color: #000;
         color: #fff;
-        border-radius:8px;
+        border-radius: 8px;
         text-decoration: none;
     }
 }
 
-#app{
+#app {
     position: relative;
 }
-table{
+
+table {
     margin: 0 auto;
     background: #999;
+    border-left: $border-gray;
+    border-top: $border-gray;
 }
-td{
+
+td {
     cursor: pointer;
     width: 48px;
     height: 48px;
-    border: 1px solid #aaa;
+    border-right: $border-gray;
+    border-bottom: $border-gray;
 }
-img{
+
+img {
     width: 100%;
     vertical-align: top;
+}
+
+// pic
+.pic {
+    &-link {
+        @extend .animated;
+        display: block;
+        width: 48px;
+        height: 48px;
+        background: no-repeat 0 0;
+        background-size: 100% 100%;
+    }
+    &-true{
+        @extend .flipInY;
+        background: #000 !important;
+    }
+    &-false{
+        @extend .shake;
+    }
+}
+
+@each $pic in 10005,
+20005,
+30005,
+40005,
+60005,
+80005,
+90005,
+100005,
+120005,
+130005,
+140005,
+150005,
+160005,
+170005,
+180005,
+190005,
+200005,
+210005,
+220005,
+230005,
+240005,
+250005,
+270005,
+280005,
+300005,
+310005,
+320005,
+320005 {
+    .pic-#{$pic} {
+        background-image: url("../img/#{$pic}.png");
+    }
+}
+
+
+.animated {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both
+}
+
+@-webkit-keyframes flipInY {
+	0% {
+		-webkit-transform: perspective(400px) rotateY(90deg);
+		transform: perspective(400px) rotateY(90deg);
+		opacity: 0
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotateY(-10deg);
+		transform: perspective(400px) rotateY(-10deg)
+	}
+
+	70% {
+		-webkit-transform: perspective(400px) rotateY(10deg);
+		transform: perspective(400px) rotateY(10deg)
+	}
+
+	100% {
+		-webkit-transform: perspective(400px) rotateY(0deg);
+		transform: perspective(400px) rotateY(0deg);
+		opacity: 1
+	}
+}
+
+@keyframes flipInY {
+	0% {
+		-webkit-transform: perspective(400px) rotateY(90deg);
+		-ms-transform: perspective(400px) rotateY(90deg);
+		transform: perspective(400px) rotateY(90deg);
+		opacity: 0
+	}
+
+	40% {
+		-webkit-transform: perspective(400px) rotateY(-10deg);
+		-ms-transform: perspective(400px) rotateY(-10deg);
+		transform: perspective(400px) rotateY(-10deg)
+	}
+
+	70% {
+		-webkit-transform: perspective(400px) rotateY(10deg);
+		-ms-transform: perspective(400px) rotateY(10deg);
+		transform: perspective(400px) rotateY(10deg)
+	}
+
+	100% {
+		-webkit-transform: perspective(400px) rotateY(0deg);
+		-ms-transform: perspective(400px) rotateY(0deg);
+		transform: perspective(400px) rotateY(0deg);
+		opacity: 1
+	}
+}
+
+.flipInY {
+	-webkit-backface-visibility: visible!important;
+	-ms-backface-visibility: visible!important;
+	backface-visibility: visible!important;
+	-webkit-animation-name: flipInY;
+	animation-name: flipInY
+}
+
+
+@-webkit-keyframes shake {
+	0%,100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0)
+	}
+
+	10%,30%,50%,70%,90% {
+		-webkit-transform: translateX(-2px);
+		transform: translateX(-2px)
+	}
+
+	20%,40%,60%,80% {
+		-webkit-transform: translateX(2px);
+		transform: translateX(2px)
+	}
+}
+
+@keyframes shake {
+	0%,100% {
+		-webkit-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0)
+	}
+
+	10%,30%,50%,70%,90% {
+		-webkit-transform: translateX(-2px);
+		-ms-transform: translateX(-2px);
+		transform: translateX(-2px)
+	}
+
+	20%,40%,60%,80% {
+		-webkit-transform: translateX(2px);
+		-ms-transform: translateX(2px);
+		transform: translateX(2px)
+	}
+}
+
+.shake {
+	-webkit-animation-name: shake;
+	animation-name: shake
 }

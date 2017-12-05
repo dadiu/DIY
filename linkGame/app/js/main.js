@@ -6,19 +6,17 @@
     var POINT_A = null; // 点击第一下
     var POINT_B = null; // 点击第二下
     var POINT_BOO = false;  // 重置点击
-    var BASEPATH = 'img/';
     var CODEARR = [];
 
     var temp = {
         row: 6,
         column: 6,
-        pic_num: 18,
-        TABLE: $("<table></table>"),
+        pic_num: 6,
+        TABLE: $("<table cellspacing='0'></table>"),
 
         init() {
 
             let picArr = this.picFn();
-
 
             this.TABLE.html(this.trFn(picArr));
             $("#app").html(this.TABLE);
@@ -52,7 +50,7 @@
             for (; d < this.column; d++) {
 
                 CODEARR[r][d] = tdArr[d];
-                TD += '<td data-x="' + r + '"data-y="' + d + '" id="pic_' + r + '_' + d + '"><img src="' + BASEPATH + tdArr[d] + '.png"/></td>';
+                TD += '<td id="pic_' + r + '_' + d + '"><i data-x="' + r + '"data-y="' + d + '" class="pic-link pic-' + tdArr[d] + '" ><i></td>';
             }
 
             return TD;
@@ -104,8 +102,11 @@
         even() {
 
             let _t = this;
-            $("td").on("click", function () {
-                _t.pointFn($(this))
+            $("#app").on("click", ".pic-link", function () {
+                $(".pic-link").removeClass("pic-false");
+                if (!$(this).hasClass('pic-true')) {
+                    _t.pointFn($(this))
+                }
             })
 
             // 重置
@@ -118,8 +119,8 @@
         pointFn(dom) {
 
             let _t = this;
-            let x = dom.attr('data-x');
-            let y = dom.attr('data-y');
+            let x = parseInt(dom.attr('data-x'));
+            let y = parseInt(dom.attr('data-y'));
 
             // console.log({"x" : x, "y" : y});
             // return;
@@ -140,55 +141,207 @@
         // 计算方法
         countPointFn() {
 
+            console.log(POINT_A);
+            console.log(POINT_B);
+
+            // 位置是否相同
+            if (POINT_A.x === POINT_B.x && POINT_A.y === POINT_B.y) {
+                console.log("the same pic");
+                this.picStatusFn('error');
+                return;
+            }
+
             // 图片是否相同
             if (CODEARR[POINT_A.x][POINT_A.y] !== CODEARR[POINT_B.x][POINT_B.y]) {
                 console.log("pic is no");
+                this.picStatusFn('error');
                 return;
             };
 
-            console.log("pic is ok");
-
-            // 0 折
-            if (POINT_A.x === POINT_B.x) {
-                console.log('x is ok')
-                this.checkLine('y')
-                return;
-            };
-            if (POINT_A.y === POINT_B.y) {
-
-                console.log('y is ok')
-
-                this.checkLine('x')
-
+            ///////////////////////////////////////
+            // 0折
+            if (!this.isStep_0()) {
                 return;
             };
 
-
+            ///////////////////////////////////////
             // 1 折
+            if (!this.isStep_1()) {
+                return;
+            };
+            console.log(">>>> other ?");
+
 
             // 2 折
         },
 
-        // 检查
-        checkLine: function (type) {
+        // 0 折
+        isStep_0() {
 
-            let a = null;
-            let b = null;
-            let y = null;
+            let _t = this;
+            let _status = true;
 
-            if (type === 'x') {
-                a = POINT_A.x;
-                b = POINT_B.x;
-                y = POINT_A.y;
+            // Y轴相等
+            if (POINT_A.y === POINT_B.y) {
 
-                let DOMA = "#pic_" + a + '_' + y;
-                let DOMB = "#pic_" + b + '_' + y;                
+                // 相邻
+                if (Math.abs(POINT_A.x - POINT_B.x) === 1) {
+                    this.picStatusFn('remove');
+                    return false;
+                };
+
+                this.compareFn(0, 'x', POINT_A.y, function (res) {
+                    _status = !res;
+                    if (res) {
+                        _t.picStatusFn('remove');
+                    }
+                });
+            };
+
+            // X轴相等
+            if (POINT_A.x === POINT_B.x) {
+
+                // 相邻
+                if (Math.abs(POINT_A.y - POINT_B.y) === 1) {
+                    this.picStatusFn('remove');
+                    return false;
+                };
+
+                this.compareFn(0, 'y', POINT_A.x, function (res) {
+                    _status = !res;
+                    if (res) {
+                        _t.picStatusFn('remove');
+                    }
+                });
+
+            };
+
+            console.log('>>> isStep_0  ...   _status : ' + _status);
+            return _status;
+
+        },
+
+        // 1折
+        isStep_1() {
+
+            let _t = this;
+            let _status = true;
+
+            // if (POINT_A.x === POINT_B.x || POINT_A.y === POINT_B.y) {
+            //     console.log("属于0折");
+            //     return;
+            // };
+
+            // X轴
+            this.compareFn(1, 'x', POINT_A.y, function (res) {
+                _status = !res;
+                if (res) {
+                    // Y轴
+                    _t.compareFn(1, "y", POINT_B.x, function (item) {
+                        _status = !item;
+                        if (item) {
+                            _t.picStatusFn('remove');
+                        }
+                    })
+                }
+
+            });
+
+            // Y轴
+            if (_status) {
+                this.compareFn(1, 'y', POINT_A.x, function (res) {
+                    _status = !res;
+                    if (res) {
+                        // X轴
+                        _t.compareFn(1, "x", POINT_B.y, function (item) {
+                            _status = !item;
+                            if (item) {
+                                _t.picStatusFn('remove');
+                            }
+                        })
+
+                        return;
+                    }
+
+                });
+
             }
 
-            $(DOMA,DOMB).html("");
+
+            console.log('>>> isStep_1  ...   _status : ' + _status);
+            return _status;
+
+        },
 
 
-            
+        /**
+         *  遍历比较
+         * @param {Number} step     几折
+         * @param {String} direction  遍历轴
+         * @param {Number} reference  参考轴数值
+         * @param {Function} cb 
+         */
+        compareFn(step, direction, reference, cb) {
+
+            let isEnd = true;
+
+            if (direction === 'x') {
+                let ROOF_X = POINT_A.x - POINT_B.x > 0 ? POINT_A.x : POINT_B.x;
+                let BASE_X = POINT_A.x - POINT_B.x > 0 ? POINT_B.x : POINT_A.x;
+
+                BASE_X++;
+                if (step === 1) {
+                    ROOF_X++;
+                }
+
+                for (; BASE_X < ROOF_X; BASE_X++) {
+                    if (CODEARR[BASE_X][reference] !== null) {
+                        console.log("x is err");
+                        isEnd = false;
+                        break;
+                    }
+                }
+
+            }
+            else if (direction === 'y') {
+
+                let ROOF_Y = POINT_A.y - POINT_B.y > 0 ? POINT_A.y : POINT_B.y;
+                let BASE_Y = POINT_A.y - POINT_B.y > 0 ? POINT_B.y : POINT_A.y;
+
+                BASE_Y++;
+                if (step === 1) {
+                    ROOF_Y++;
+                }
+                for (; BASE_Y < ROOF_Y; BASE_Y++) {
+                    if (CODEARR[reference][BASE_Y] !== null) {
+                        console.log("y is err");
+                        isEnd = false;
+                        break;
+                    }
+                };
+            };
+
+            cb & cb(isEnd);
+        },
+
+        // 移除 或 警告
+        picStatusFn(type) {
+
+            let DOMA = "#pic_" + POINT_A.x + '_' + POINT_A.y;
+            let DOMB = "#pic_" + POINT_B.x + '_' + POINT_B.y;
+            let pic = $(DOMA + ',' + DOMB).find('.pic-link');
+
+            if (type === 'remove') {
+                CODEARR[POINT_A.x][POINT_A.y] = null;
+                CODEARR[POINT_B.x][POINT_B.y] = null;
+                pic.removeClass("pic-false").addClass("pic-true");
+                return;
+            }
+            if (type === 'error') {
+                pic.addClass("pic-false");
+                return;
+            }
+
         }
     };
 

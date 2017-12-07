@@ -3,14 +3,19 @@
 // console.log(picData);
 ; (function () {
 
-    var POINT_A = null; // 点击第一下
-    var POINT_B = null; // 点击第二下
+    var POINT_A = null;     // 点击第一下  {"x" : Number, "y" : Number}
+    var POINT_B = null;     // 点击第二下  {"x" : Number, "y" : Number}
     var POINT_BOO = false;  // 重置点击
     var CODEARR = [];
 
+    // CODEARR = [  x = index
+    //     [pic0, pic1],
+    //     [pic2, pic3]
+    // ]
+
     var temp = {
-        row: 6,
-        column: 6,
+        row: 8,     // x
+        column: 6,  // y
         pic_num: 6,
         TABLE: $("<table cellspacing='0'></table>"),
 
@@ -41,8 +46,6 @@
 
         tdFn(r, arr) {
 
-
-            // return $('<td></td>');
             let d = 0;
             let TD = '';
             let tdArr = arr.slice(r * this.column, (r + 1) * this.column);
@@ -158,40 +161,214 @@
                 return;
             };
 
-            ///////////////////////////////////////
             // 0折
-            if (!this.isStep_0()) {
+            if (this.isStep0()) {
                 return;
             };
 
-            ///////////////////////////////////////
             // 1 折
-            if (!this.isStep_1()) {
+            if (this.isStep1()) {
                 return;
             };
-
-            console.log(">>>> other ?");
-
 
             // 2 折
+            // if (this.isStep2()) {
+            //     return;
+            // };
+
+            // default
+            this.picStatusFn('error');
+            console.log(">>>> other ?");
         },
 
         // 0 折
-        isStep_0() {
+        isStep0() {
 
+            // 相邻
+            if (
+                (Math.abs(POINT_A.x - POINT_B.x) === 1 && POINT_A.y === POINT_B.y) ||
+                (Math.abs(POINT_A.y - POINT_B.y) === 1 && POINT_A.x === POINT_B.x)
+            ) {
+
+                this.picStatusFn('remove');
+                return true;
+            };
+
+
+            if (this.compareFn(POINT_A, POINT_B)) {
+                this.picStatusFn('remove');
+                return true;
+            };
+
+            return false;
         },
 
         // 1折
-        isStep_1() {
+        isStep1() {
 
-            // X轴
+            let Pt1 = { "x": POINT_A.x, "y": POINT_B.y };
+            let Pt2 = { "x": POINT_B.x, "y": POINT_A.y };
 
+            if (this.compareFn(POINT_A, Pt1) && this.compareFn(POINT_B, Pt1) && CODEARR[Pt1.x][Pt1.y] === null) {
+                this.picStatusFn('remove');
+                return true;
+            }
 
-            // Y轴
+            if (this.compareFn(POINT_A, Pt2) && this.compareFn(POINT_B, Pt2) && CODEARR[Pt2.x][Pt2.y] === null) {
+                this.picStatusFn('remove');
+                return true;
+            }
+
+            return false;
+
         },
 
-        compareFn(){
+        // 2折
+        isStep2() {
 
+            let _t = this;
+
+            // same direction && 0 || max
+            if ((POINT_A.x === POINT_B.x && (POINT_B.x === 0 || POINT_B.x === temp.row - 1)) || (POINT_A.y === POINT_B.y && (POINT_B.y === 0 || POINT_B.y === temp.column - 1))) {
+                this.picStatusFn('remove');
+                return true;
+            }
+
+            // other
+            let Pt1 = { "x": POINT_A.x, "y": temp.column };
+            let Pt2 = { "x" : temp.column, "y" : POINT_A.y};
+            let Pt3 = { "x" : POINT_A.x, "y" : 0};
+            let Pt4 = { "x" : 0, "y" : POINT_A.y};
+            let step1, step2, step3, step4;
+
+
+            step1 = this.compareSeconFn(POINT_A, Pt1, function (res) {
+                
+                _t.compareSeconFn(res, { "x": temp.row, "y": res.y }, function (items) {
+
+                    if(items){
+                        _t.compareSeconFn(items, POINT_B , function(item){
+
+                            if(item){
+                                console.log(">>1 : " + item);
+                                _t.picStatusFn('remove');
+                                return true;
+                            }
+                        })
+                    }
+                    
+                })
+            })
+
+            if(step1){
+
+                console.log(">>> Pt1 : " + JSON.stringify(Pt1));
+                return;
+            }
+
+
+            return false;
+        },
+
+        /**
+         * 2折算法
+         * @param {Object} srcPt 
+         * @param {Object} destPt 
+         * @param {Function} cb 
+         */
+        compareSeconFn(srcPt, destPt, cb) {
+
+            let base = 0;
+            let roof = 0;
+            let back = {};
+
+            if (srcPt.x === destPt.x) {
+
+                base = srcPt.y - destPt.y > 0 ? destPt.y : srcPt.y;
+                roof = srcPt.y - destPt.y > 0 ? srcPt.y : destPt.y;
+
+                base++;
+
+                for (; base < roof; base++) {
+                    
+                    if (CODEARR[srcPt.x][base] === null) {
+
+                        back = { "x": srcPt.x, "y": base };
+                        console.log("back x : " + JSON.stringify(back));
+                            
+                    } else {
+
+                        break;
+                    }
+                }
+
+            }
+
+            if (srcPt.y === destPt.y) {
+
+                base = srcPt.x - destPt.x > 0 ? destPt.x : srcPt.x;
+                roof = srcPt.x - destPt.x > 0 ? srcPt.x : destPt.x;
+
+                base ++;
+
+                for(; base < roof; base++){
+                    if(CODEARR[base][srcPt.y] === null){
+
+                        back = { "x": base, "y": srcPt.y }
+                        console.log("back y : " + JSON.stringify(back));
+                        if(cb && cb(back)){
+                            return false;
+                        }
+                    }
+                }
+
+            }
+
+            return false;
+        },
+
+        /**
+         * 0折 1折算法
+         * @param {Object} srcPt    {"x" : Number, "y" : Number} 
+         * @param {Object} destPt   {"x" : Number, "y" : Number} 
+         */
+        compareFn(srcPt, destPt) {
+
+            let base = 0;
+            let roof = 0;
+            let isBack = true;
+
+            if (srcPt.x === destPt.x) {
+                base = srcPt.y - destPt.y > 0 ? destPt.y : srcPt.y;
+                roof = srcPt.y - destPt.y > 0 ? srcPt.y : destPt.y;
+                base++;
+
+                for (; base < roof; base++) {
+                    if (CODEARR[srcPt.x][base] !== null) {
+                        isBack = false;
+                        break;
+                    }
+                }
+
+                return isBack;
+            }
+
+            if (srcPt.y === destPt.y) {
+                base = srcPt.x - destPt.x > 0 ? destPt.x : srcPt.x;
+                roof = srcPt.x - destPt.x > 0 ? srcPt.x : destPt.x;
+
+                base++;
+                for (; base < roof; base++) {
+                    if (CODEARR[base][srcPt.y] !== null) {
+                        isBack = false;
+                        break;
+                    }
+                }
+
+                return isBack;
+            }
+
+            return false;
         },
 
         // 移除 或 警告
@@ -205,6 +382,8 @@
                 CODEARR[POINT_A.x][POINT_A.y] = null;
                 CODEARR[POINT_B.x][POINT_B.y] = null;
                 pic.removeClass("pic-false").addClass("pic-true");
+
+                // console.log(CODEARR)
                 return;
             }
             if (type === 'error') {
